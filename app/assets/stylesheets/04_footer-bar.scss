@@ -1,0 +1,27 @@
+.footer-div {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: fixed;
+    bottom: 0px;   
+    background: #83ba57;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-logo {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.linkedin-logo {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+

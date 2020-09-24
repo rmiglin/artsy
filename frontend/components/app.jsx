@@ -13,6 +13,9 @@ import GreetingContainer from './greeting/greeting_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-solid-svg-icons';
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -24,6 +27,7 @@ const App = () => (
         </header>
         <Switch>
         </Switch>
+        <Footer />
     </div>
 );
 

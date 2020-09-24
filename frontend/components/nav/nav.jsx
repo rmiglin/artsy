@@ -3,6 +3,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {ClickDropdown} from '../dropdown/dropdown';
 
 class Nav extends React.Component {
     constructor(props) {
