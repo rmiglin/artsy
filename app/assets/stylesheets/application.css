@@ -14,11 +14,10 @@
  *= require_self
  */
 
-   .header-link {
-      color: rgba(224, 109, 54);
-      text-decoration: none;
-      transform: translate(10%, -10%);  
-
+.header-link {
+   color: rgba(224, 109, 54, 1.0);
+   text-decoration: none;
+   transform: translate(10%, -10%);  
 }
 
 .search-bar {
