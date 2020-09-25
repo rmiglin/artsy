@@ -1,19 +1,20 @@
 .header-link {
-   color: rgba(224, 109, 54, 1.0);
-   text-decoration: none;
-   font-size: 40px;
-   transform: translate(10%, 30%);  
-   margin-right: 10px;
-   font-family: 'Times New Roman', Times, serif;
+    color: rgba(224, 109, 54, 1.0);
+    text-decoration: none;
+    font-size: 40px;
+    transform: translate(10%, 30%);  
+    margin-right: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px 10px 0px 10px;
 }
 
 .search-bar {
-   width: 1096px;
-   padding: 9px 42px 9px 18px;
-   height: 30px;
-   transform: translate(0%, 30%);
-   border-radius: 25px;
-   background-color: lightgray;
+    width: 900px;
+    padding: 9px 42px 9px 18px;
+    height: 30px;
+    transform: translate(0%, 30%);
+    border-radius: 25px;
+    background-color: lightgray;
 }
 
 .nav-div {
@@ -24,29 +25,33 @@
     padding: 0px 36px;
     vertical-align: middle;
     margin: 0px 34.5px;
-    padding: 12px 240px;
+    padding: 12px 200px;
     align-items: center;
+
 }
 
 .dropdown-div ul{
-    margin-top: 10px;
     list-style-type: none;
     display: flex;
     flex-direction: row;
     vertical-align: middle;
     justify-content: space-between;
     padding: 0px 18px;
+    width: 1270px;
     font-style: sans-serif;
-    margin-left: 230px;
-    margin-right: 230px;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
 }
 
   
 
 .shopping-cart {
     font-size: 20px; 
-    transform: translate(0%, 100%);
-    vertical-align: text-bottom;   
+    transform: translate(0%, 35%);
+    border-radius: 20px;
+    vertical-align: text-bottom;  
+    padding: 10px; 
     &:hover{
         background-color: lightgray;
         transition: background-color .2s ease-in-out;
@@ -58,10 +63,10 @@
     font-family: sans-serif;
     border-radius: 25px;
     height: 30px;
-    width: 75px;
-    padding: 0px 15px;
+    width: 40px;
+    padding: 0px 15px 0px 15px;
     text-align: bottom;
-    transform: translate(0%, 80%);
+    transform: translate(0%, 45%);
     vertical-align: center;
     justify-content: center;
     flex-direction: column;

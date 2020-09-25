@@ -1,7 +1,25 @@
- .login-form-box > h1{
+   .login-form-box > h1{
     font-size: 20px;
     font-weight: normal; 
     
+   }
+   
+   .register-header {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 70px;
+   }
+
+   .register-submit {
+      border: 2px solid black;
+      border-radius: 20px;
+      padding: 9px 15px;
+      height: 18px;
+      font-size: 13px;
+      &:hover{
+         transition: box-shadow;
+    }
    }
    
    .login-form-box > h2{
@@ -29,7 +47,17 @@
       color: white;
       background: black;
       align-self: center;
-      width: 100%;
+      width: 88%;
       padding: 12px 18px;
       font-size: 16px;
+   }
+
+   .login-input {
+      background: e8f0fe;
+      padding: 9px 12px;
+   }
+
+   .login-errors {
+      color: red;
+      margin-top: 10px;
    }
