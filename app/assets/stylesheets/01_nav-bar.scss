@@ -58,6 +58,12 @@
     }
 }
 
+.user-circle {
+    font-size: 20px;
+    transform: translate(0%, 35%);
+    padding: 10px; 
+}
+
 .signin-submit {
     font-size: 13px;
     font-family: sans-serif;
@@ -74,4 +80,6 @@
         background-color: lightgray;
         transition: background-color .2s ease-in-out;
     }
+
+
 }

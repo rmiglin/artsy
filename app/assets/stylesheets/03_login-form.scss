@@ -17,9 +17,6 @@
       padding: 9px 15px;
       height: 18px;
       font-size: 13px;
-      &:hover{
-         transition: box-shadow;
-    }
    }
    
    .login-form-box > h2{
@@ -36,6 +33,7 @@
       width: 92%;
       height: 25px;
       font-size: 17px;
+      text-align: left;
    }
    
    .login-form > label{
@@ -53,8 +51,8 @@
    }
 
    .login-input {
-      background: e8f0fe;
       padding: 9px 12px;
+
    }
 
    .login-errors {

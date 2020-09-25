@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {ClickDropdown} from '../dropdown/dropdown';
@@ -10,6 +11,17 @@ class Nav extends React.Component {
         super(props);
     }
 
+    userStatus (){
+        return this.props.loggedIn ? <FontAwesomeIcon className="user-circle" icon={faUserCircle} /> : this.props.sessionModal; 
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.loggedIn !== this.props.loggedIn){
+            this.userStatus();
+        }
+    }
+
+
     render () {
         return(
             <div>
@@ -18,8 +30,9 @@ class Nav extends React.Component {
                         <h1>Artsy</h1>
                     </Link>
                     <input type="search" className="search-bar" placeholder="Search for items or shops" results="0"/>
-                    {this.props.sessionModal}
+                    {this.userStatus()}
                     <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>
+
                 </div>
                 <div className="dropdown-div">
                     <ul>
