@@ -48,6 +48,7 @@
       width: 88%;
       padding: 12px 18px;
       font-size: 16px;
+      text-align: center;
    }
 
    .login-input {
@@ -58,4 +59,16 @@
    .login-errors {
       color: red;
       margin-top: 10px;
+   }
+
+   .demo-submit {
+      margin-top: 20px;
+      border-radius: 25px;
+      color: white;
+      background: #7B6CAA;
+      width: 88%;
+      padding: 12px 18px;
+      padding-left: auto;
+      font-size: 16px;
+      text-align: center;
    }

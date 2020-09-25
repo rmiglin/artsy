@@ -12,7 +12,12 @@ class Nav extends React.Component {
     }
 
     userStatus (){
-        return this.props.loggedIn ? <FontAwesomeIcon className="user-circle" icon={faUserCircle} /> : this.props.sessionModal; 
+        return this.props.loggedIn ? 
+        <>
+        <FontAwesomeIcon className="user-circle" icon={faUserCircle} /> 
+        <button className="signin-submit" onClick={ this.props.logout }>Log out</button>
+        </>: 
+        this.props.sessionModal; 
     }
 
     componentDidUpdate(prevProps){

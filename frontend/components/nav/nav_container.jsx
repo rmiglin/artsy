@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { openModal, closeModal } from '../../actions/modal_actions';
+import { logout } from '../../actions/session_actions';
 import Nav from './nav';
 
 const mapStateToProps = state => ({
@@ -14,7 +15,8 @@ const mapDispatchToProps = dispatch => ({
                 Sign in
             </button>
         ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    logout: () => dispatch(logout())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);

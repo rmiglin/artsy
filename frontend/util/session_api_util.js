@@ -14,9 +14,23 @@ export const signup = user => (
     })
 );
 
-export const logout = () => (
-    $.ajax({
+export const logout = () => {
+    return $.ajax({
         method: 'DELETE',
         url: '/api/session'
     })
-)
+}
+
+export const demoUser = () => {
+    return $.ajax({
+        method: 'POST',
+        url: '/api/session',
+        data: {
+            user: {
+                email: 'demouser@email.com',
+                first_name: 'demo',
+                password: 'hunter12'
+            }
+        }
+    });
+}
