@@ -39,7 +39,11 @@ class SessionForm extends React.Component {
 
     demoUser(e) {
         e.preventDefault();
-        this.props.loginDemoUser().then(this.props.closeModal);
+        // this.props.loginDemoUser().then(this.props.closeModal)
+        this.props.processForm({
+            email: "demouser@email.com",
+            password: "hunter12"
+        }).then(this.props.closeModal);
     }
 
     render() {

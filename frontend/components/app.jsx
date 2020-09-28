@@ -10,11 +10,11 @@ import {
 import Modal from './modal/modal';
 import Nav from './nav/nav_container';
 import GreetingContainer from './greeting/greeting_container';
-import SignUpFormContainer from './session_form/signup_form_container';
-import LogInFormContainer from './session_form/login_form_container';
+import ProductIndexContainer from './products/product_index_container';
+import CreateProductFormContainer from './products/create_product_form_container';
+import ProductShowContainer from './products/product_show_container';
+import EditProductFormContainer from './products/edit_product_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-solid-svg-icons';
 import Footer from './footer/footer';
 
 const App = () => (
@@ -26,6 +26,10 @@ const App = () => (
             <GreetingContainer />
         </header>
         <Switch>
+            <Route exact path="/api/products/new" component={CreateProductFormContainer} />
+            <Route exact path="api/products/:productId" component={ProductShowContainer} />
+            <ProtectedRoute path="api/products/:productId/edit" component={EditProductFormContainer} />
+            <Route exact path="/" component={ProductIndexContainer} />
         </Switch>
         <Footer />
     </div>

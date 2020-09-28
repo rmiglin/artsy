@@ -6,8 +6,9 @@ import {logout} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
+    let preloadedState;
     if (window.currentUser) {
-        const preloadedState = {
+        let preloadedState = {
             session: { id: window.currentUser.id},
             entities: {
                 users: { [window.currentUser.id]: window.currentUser }
@@ -17,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         delete window.currentUser;
     } else {
         store = configureStore();
-    }
+        preloadedState = {ui:{ modal: 'Sign up' }};
+    };
     window.getState = store.getState;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);
