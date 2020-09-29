@@ -1,8 +1,13 @@
 .products {
+    position: relative;
     margin: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .product-listing {

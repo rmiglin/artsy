@@ -10,21 +10,21 @@ class ProductShow extends React.Component {
     componentDidMount() {
         this.props.requestProduct(this.props.match.params.productId);
     }
-// t.string "product_name", null: false
-// t.integer "seller_id", null: false
-// t.integer "price", null: false
-// t.integer "quantity", null: false
-// t.text "description", null: false
     render() {
         const { product } = this.props;
         return (
             <div>
                 <h1>{this.props.product.product_name}</h1>
+                <img className="product-picture" src={product.picture_url} alt={product.product_name} />
+                <h1>Seller Id:</h1>
                 <h1>{this.props.product.seller_id}</h1>
-                <h1>{this.props.product.price}</h1>
+                <h1>Price:</h1>
+                <h1>${this.props.product.price}</h1>
+                <h1>Quantity:</h1>
                 <h1>{this.props.product.quantity}</h1>
+                <h1>Description:</h1>
                 <h1>{this.props.product.description}</h1>
-                <Link to="/" />
+                <Link to="/" >Back</Link>
             </div>
         )
     }

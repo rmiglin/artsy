@@ -6,7 +6,7 @@ import {
     deleteProduct
 } from '../../actions/product_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, { session, entities }) => {
     //console.log(state)
     return({
         currentUser: state.entities.users[state.session.id],

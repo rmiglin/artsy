@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { requestProduct, updateProduct } from '../../actions/product_actions';
 import ProductForm from './product_form';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state, ownProps) => {
+    debugger;
+    return({
     currentUser: state.entities.users[state.session.id],
-    product: state.products[ownProps.match.params.productId],
+    product: state.entities.products[ownProps.match.params.productId],
     formType: 'Update Product'
-})
+    });
+}
 
 const mapDispatchToProps = (dispatch) => ({
     requestProduct: productId => dispatch(requestProduct(productId)),
@@ -17,18 +20,23 @@ const mapDispatchToProps = (dispatch) => ({
 class EditProductForm extends React.Component {
 
     componentDidMount() {
+        debugger;
         this.props.requestProduct(this.props.match.params.productId)
     }
 
     render() {
+        debugger;
         const { action, formType, product } = this.props;
         
         if (!product) return null;
         return (
+            <div>
+            <h1>HI I'M WORKING!!!</h1>
             <ProductForm
                 action={action}
                 formType={formType}
                 product={product} />
+            </div>
         );
     }
 }

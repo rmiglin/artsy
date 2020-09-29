@@ -4,9 +4,9 @@ export const fetchProducts = (userId) => {
     });
 }
 
-export const fetchProduct = (id) => {
+export const fetchProduct = (productId) => {
     return $.ajax({
-        url: `/api/products/${id}`
+        url: `/api/products/${productId}`
     });
 }
 
@@ -19,6 +19,7 @@ export const createProduct = (body) => {
 }
 
 export const updateProduct = (body, id) => {
+    debugger;
     return $.ajax({
         method: "PATCH",
         url: `/api/products/${id}`,

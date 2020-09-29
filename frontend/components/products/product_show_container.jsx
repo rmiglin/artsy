@@ -3,7 +3,7 @@ import ProductShow from './product_show';
 import { requestProduct } from '../../actions/product_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    product: state.products[ownProps.match.params.productId]
+    product: state.entities.products[ownProps.match.params.productId]
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -23,12 +23,12 @@ const App = () => (
         <header>
 
             <Nav/>
-            <GreetingContainer />
         </header>
+        <GreetingContainer/>
         <Switch>
             <Route exact path="/api/products/new" component={CreateProductFormContainer} />
-            <Route exact path="api/products/:productId" component={ProductShowContainer} />
-            <ProtectedRoute path="api/products/:productId/edit" component={EditProductFormContainer} />
+            <Route exact path="/products/:productId" component={ProductShowContainer} />
+            <ProtectedRoute exact path="/products/:productId/edit" component={EditProductFormContainer} />
             <Route exact path="/" component={ProductIndexContainer} />
         </Switch>
         <Footer />

@@ -12,6 +12,7 @@ const receiveProducts = (products) => {
 };
 
 const receiveProduct = (product) => {
+    debugger;
     return {
         type: RECEIVE_PRODUCT,
         product
@@ -63,6 +64,7 @@ export const deleteProduct = (productId) => {
 export const updateProduct = (product) => {
     return (dispatch) => {
         return ProductAPIUtil.updateProduct(product).then(product => {
+            debugger;
             return dispatch(receiveProduct(product));
         })
     }
