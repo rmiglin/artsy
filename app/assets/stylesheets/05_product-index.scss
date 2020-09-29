@@ -1,0 +1,18 @@
+.products {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product-listing {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.product-picture {
+    width: 210px;
+    height: 167px;
+}
