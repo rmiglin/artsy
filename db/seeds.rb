@@ -11,12 +11,12 @@ require 'open-uri'
 User.destroy_all
 Product.destroy_all
 user1 = User.create!(email: "demouser@email.com", first_name: "Demo", password: "hunter12")
-user2 = User.create!(email: "karenskrafts@email.com", first_name: "Karen", password: "krafts123")
-user3 = User.create!(email: "roguewarrior7@email.com", first_name: "Rogue", password: "rogue_warrior7")
-user4 = User.create!(email: "johnblonder@email.com", first_name: "John", password: "blondie43")
-user5 = User.create!(email: "madhaatter@email.com", first_name: "MadHat", password: "wonderland")
-user6 = User.create!(email: "simplesimon@email.com", first_name: "Simon", password: "pieman")
-user7 = User.create!(email: "jackiedaytona@email.com", first_name: "Jackie", password: "vampire")
+user2 = User.create!(email: "karenskrafts@email.com", first_name: "KarensKrafts", password: "krafts123")
+user3 = User.create!(email: "roguewarrior7@email.com", first_name: "RogueWarrior16", password: "rogue_warrior7")
+user4 = User.create!(email: "johnblonder@email.com", first_name: "BigTexasJohn", password: "blondie43")
+user5 = User.create!(email: "madhaatter@email.com", first_name: "JewelryByCynthia", password: "wonderland")
+user6 = User.create!(email: "simplesimon@email.com", first_name: "SimonsPrintsAndMore", password: "pieman")
+user7 = User.create!(email: "jackiedaytona@email.com", first_name: "JackiesArtsEmporium", password: "vampire")
 
 product1 = Product.create!(
     product_name: "Handwoven 11ft X 8ft Rug", 
@@ -63,7 +63,7 @@ product4.photo.attach(io: file4, filename: 'monstera-deliciosa.jpg')
 
 product5 = Product.create!(
     product_name: "Charm Bracelet",
-    seller_id: user7.id,
+    seller_id: user5.id,
     price: 65,
     quantity: 1,
     description: "pewter-plated charm bracelet. one size fits most"
@@ -73,7 +73,7 @@ product5.photo.attach(io: file5, filename: 'charm-bracelet.jpg')
 
 product6 = Product.create!(
     product_name: "Badminton Set",
-    seller_id: user5.id,
+    seller_id: user7.id,
     price: 25,
     quantity: 2,
     description: "handcrafted wooden rackets and net"
@@ -133,7 +133,7 @@ product11.photo.attach(io: file11, filename: 'floral-lamp-shades.png')
 
 product12 = Product.create!(
     product_name: "Custom-painted Pokemon Vans",
-    seller_id: user5.id,
+    seller_id: user4.id,
     price: 70,
     quantity: 3,
     description: "Custom painted pokemon vans siz 10 mens."
@@ -193,7 +193,7 @@ product17.photo.attach(io: file17, filename: 'antique-coke-machine.jpg')
 
 product18 = Product.create!(
     product_name: "Dog Bandana",
-    seller_id: user5.id,
+    seller_id: user3.id,
     price: 15,
     quantity: 25,
     description: "Wonderful gift for the dog lover in your life!"
@@ -223,7 +223,7 @@ product20.photo.attach(io: file20, filename: 'glass-wind-chimes.jpg')
 
 product21 = Product.create!(
     product_name: "Orange Earrings",
-    seller_id: user3.id,
+    seller_id: user5.id,
     price: 14,
     quantity: 40,
     description: "Cute summer vibes!"

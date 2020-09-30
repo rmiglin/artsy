@@ -18,11 +18,11 @@ export const createProduct = (body) => {
     });
 }
 
-export const updateProduct = (body, id) => {
+export const updateProduct = (body) => {
     debugger;
     return $.ajax({
         method: "PATCH",
-        url: `/api/products/${id}`,
+        url: `/api/products/${body.id}`,
         data: {product: body}
     });
 }

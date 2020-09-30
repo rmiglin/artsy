@@ -138,17 +138,19 @@ var RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 var RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 var REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
-var receiveProducts = function receiveProducts(products) {
+var receiveProducts = function receiveProducts(payload) {
   return {
     type: RECEIVE_PRODUCTS,
-    products: products
+    products: payload.products,
+    users: payload.users
   };
 };
 
-var receiveProduct = function receiveProduct(product) {
+var receiveProduct = function receiveProduct(payload) {
   return {
     type: RECEIVE_PRODUCT,
-    product: product
+    product: payload.product,
+    users: payload.users
   };
 };
 
@@ -1112,7 +1114,8 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           products = _this$props.products,
           deleteProduct = _this$props.deleteProduct,
-          currentUser = _this$props.currentUser;
+          currentUser = _this$props.currentUser,
+          users = _this$props.users;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "header-name"
       }, "Welcome back, ", currentUser.first_name, "!") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1124,6 +1127,7 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           currentUser: currentUser,
           product: product,
           deleteProduct: deleteProduct,
+          seller: users[product.seller_id],
           key: product.id
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -1157,13 +1161,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state, _ref) {
-  var session = _ref.session,
-      entities = _ref.entities;
+var mapStateToProps = function mapStateToProps(state) {
   //console.log(state)
   return {
     currentUser: state.entities.users[state.session.id],
-    products: Object.values(state.entities.products)
+    products: Object.values(state.entities.products),
+    users: state.entities.users
   };
 };
 
@@ -1235,7 +1238,8 @@ var ProductIndexItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           product = _this$props.product,
-          deleteProduct = _this$props.deleteProduct;
+          deleteProduct = _this$props.deleteProduct; //debugger;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-listing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1320,7 +1324,10 @@ var ProductShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var product = this.props.product;
+      debugger;
+      var _this$props = this.props,
+          product = _this$props.product,
+          users = _this$props.users;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-show-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1329,9 +1336,9 @@ var ProductShow = /*#__PURE__*/function (_React$Component) {
         alt: product.product_name
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-info-div"
-      }, this.props.seller, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "seller-heading"
-      }, "Seller Id: ", this.props.product.seller_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }, users[product.seller_id].first_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "product-heading"
       }, this.props.product.product_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "price-quantity-div"
@@ -1339,7 +1346,13 @@ var ProductShow = /*#__PURE__*/function (_React$Component) {
         className: "product-price"
       }, "$", this.props.product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "product-quantity"
-      }, "Quantity: ", this.props.product.quantity)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Description:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.product.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Quantity: ", this.props.product.quantity)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "description-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "description-heading"
+      }, "Description:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "description"
+      }, this.props.product.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, "Back")));
     }
@@ -1371,7 +1384,8 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     product: state.entities.products[ownProps.match.params.productId],
-    seller: state.entities.users[ownProps.match.params.seller_id]
+    //seller: state.entities.users[ownProps.match.params.seller_id]
+    users: state.entities.users
   };
 };
 
@@ -1948,7 +1962,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_product_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/product_actions */ "./frontend/actions/product_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1960,6 +1976,12 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
+
+    case _actions_product_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PRODUCTS"]:
+      return Object.assign({}, state, action.users);
+
+    case _actions_product_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_PRODUCT"]:
+      return Object.assign({}, state, action.users);
 
     default:
       return state;
@@ -2031,11 +2053,11 @@ var createProduct = function createProduct(body) {
     }
   });
 };
-var updateProduct = function updateProduct(body, id) {
+var updateProduct = function updateProduct(body) {
   debugger;
   return $.ajax({
     method: "PATCH",
-    url: "/api/products/".concat(id),
+    url: "/api/products/".concat(body.id),
     data: {
       product: body
     }

@@ -15,6 +15,7 @@
 }
 
 .product-info-div {
+    width: 430px;
     margin-left: 64px;
     display: flex;
     flex-direction: column;
@@ -26,21 +27,36 @@
     font-size: 16px;
     font-family: sans-serif;
     font-weight: lighter;
+    margin-bottom: 30px;
 }
 
 .product-heading {
-    font-weight: lighter;
+    font-weight: 900;
     font-size: 26px;
+    font-family: Cormorant Garamond;
+    font-weight: lighter;
 }
 
 .product-price {
     font-size: 28px;
-    font-weight: bolder;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 .price-quantity-div {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.description-heading {
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.description {
+    font-size: 16px;
+    font-family: sans-serif;
 }

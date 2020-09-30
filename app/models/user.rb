@@ -6,6 +6,10 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     attr_reader :password
 
+    has_many :products,
+        foreign_key: :seller_id,
+        class_name: :Product
+
     after_initialize :ensure_session_token 
 
     def self.find_by_credentials(email, password)

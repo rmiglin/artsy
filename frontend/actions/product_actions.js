@@ -4,17 +4,19 @@ export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
-const receiveProducts = (products) => {
+const receiveProducts = (payload) => {
     return {
         type: RECEIVE_PRODUCTS,
-        products
+        products: payload.products,
+        users: payload.users
     };
 };
 
-const receiveProduct = (product) => {
+const receiveProduct = (payload) => {
     return {
         type: RECEIVE_PRODUCT,
-        product
+        product: payload.product,
+        users: payload.users
     };
 };
 

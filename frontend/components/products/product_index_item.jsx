@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 class ProductIndexItem extends React.Component {
     render() {
         const { product, deleteProduct } = this.props;
+        //debugger;
         return (
                 <div className="product-listing">
                     <div className="edit-delete-div">

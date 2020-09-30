@@ -6,11 +6,12 @@ import {
     deleteProduct
 } from '../../actions/product_actions';
 
-const mapStateToProps = (state, { session, entities }) => {
+const mapStateToProps = (state) => {
     //console.log(state)
     return({
         currentUser: state.entities.users[state.session.id],
-        products: Object.values(state.entities.products)
+        products: Object.values(state.entities.products),
+        users: state.entities.users
     })
 }
 

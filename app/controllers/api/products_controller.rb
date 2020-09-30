@@ -12,14 +12,19 @@ class Api::ProductsController < ApplicationController
     end
 
     def create 
-        @product = Product.create!(product_params)
-        render :show
+        @product = Product.new(product_params)
+        @product.seller_id = current_user.id
+        if @product.save        
+            render :show
+        else
+            render json: @product.errors.full_messages, status: 422
+        end
     end
 
     def update
         @product = Product.find(params[:id])
         if @product.update(product_params)
-            redirect_to product_url(@product)
+            render :show
         else
             render json: @product.errors.full_messages, status: 422
         end
