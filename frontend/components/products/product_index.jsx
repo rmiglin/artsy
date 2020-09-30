@@ -12,15 +12,16 @@ class ProductIndex extends React.Component {
     render() {
         const { products, deleteProduct, currentUser } = this.props;
         return (
-            <div>        
+            <div>    
+                {currentUser ? <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2>: ""}    
             <div className="products">
-                <ul>
+                <ul className="product-list">
                     {
                         products.map((product) => (<ProductIndexItem currentUser = {currentUser} product={product} deleteProduct={deleteProduct} key={product.id} />))
                     }
                 </ul>
-                {this.props.currentUser ? <Link to="api/products/new">New Product</Link> : ""}
             </div>
+                <h1 className="create-product-button">{this.props.currentUser ? <Link to="api/products/new">Create Product Listing</Link> : ""}</h1>
             </div>
         )
     }

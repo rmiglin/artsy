@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 class ProductIndexItem extends React.Component {
     render() {
         const { product, deleteProduct } = this.props;
-        debugger;
         return (
                 <div className="product-listing">
                     <Link to={`/products/${product.id}`}><img className="product-picture" src={product.picture_url} alt={product.product_name} /></Link>

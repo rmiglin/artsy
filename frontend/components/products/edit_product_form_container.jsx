@@ -20,18 +20,15 @@ const mapDispatchToProps = (dispatch) => ({
 class EditProductForm extends React.Component {
 
     componentDidMount() {
-        debugger;
         this.props.requestProduct(this.props.match.params.productId)
     }
 
     render() {
-        debugger;
         const { action, formType, product } = this.props;
         
         if (!product) return null;
         return (
             <div>
-            <h1>HI I'M WORKING!!!</h1>
             <ProductForm
                 action={action}
                 formType={formType}

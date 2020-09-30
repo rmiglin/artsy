@@ -12,9 +12,10 @@ export default (state = [], action) => {
             return action.errors;
         case RECEIVE_CURRENT_USER:
         case CLOSE_MODAL:
-            return [];
+            //return null;
+            return [];  
         case OPEN_MODAL:
-            return [];    
+            return [];
         default:
             return state;
     }

@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom';
 import Modal from './modal/modal';
 import Nav from './nav/nav_container';
-import GreetingContainer from './greeting/greeting_container';
 import ProductIndexContainer from './products/product_index_container';
 import CreateProductFormContainer from './products/create_product_form_container';
 import ProductShowContainer from './products/product_show_container';
@@ -24,7 +23,6 @@ const App = () => (
 
             <Nav/>
         </header>
-        <GreetingContainer/>
         <Switch>
             <Route exact path="/api/products/new" component={CreateProductFormContainer} />
             <Route exact path="/products/:productId" component={ProductShowContainer} />

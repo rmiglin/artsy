@@ -1,13 +1,15 @@
-.products {
-    position: relative;
+.product-list {
+    display: contents;
+    overflow: scroll;
     margin: 10px;
+}
+
+.products {
+    margin: 10px;
+
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 100%;
-    overflow-x: hidden;
+    flex-direction: row;
 }
 
 .product-listing {
@@ -20,4 +22,12 @@
 .product-picture {
     width: 210px;
     height: 167px;
+}
+
+.create-product-button {
+    color: purple;
+}
+
+.header-name {
+    font-weight: lighter;
 }
