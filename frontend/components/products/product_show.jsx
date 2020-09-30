@@ -21,13 +21,25 @@ class ProductShow extends React.Component {
                     <h1 className="product-heading">{this.props.product.product_name}</h1>
                     <div className="price-quantity-div">
                         <h1 className="product-price">${this.props.product.price}</h1>
-                        <h1 className="product-quantity">Quantity: {this.props.product.quantity}</h1>
+                        <label className="in-stock-label"> &#10003; In stock</label>
                     </div>
+                        <form className="quantity-selector">
+                            <label className="quantity-label">Quantity</label>
+                            <select className="quantity-options-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </form>
+                    <button className="buy-now-submit">Buy it now</button>
+                    <button className="add-cart-submit">Add to cart</button>   
                     <div className="description-div">
                         <h1 className="description-heading">Description:</h1>
-                        <h1 className="description">{this.props.product.description}</h1>
+                        <h1 className="description"> &#10058; {this.props.product.description} &#10058;</h1>
                     </div>
-                    <Link to="/" >Back</Link>
+                    {/* <Link to="/" >Back</Link> */}
                 </div>
             </div>
         )

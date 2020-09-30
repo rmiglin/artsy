@@ -39,12 +39,14 @@
 
 .product-price {
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 600;
     font-family: sans-serif;
+    line-height: 10px;
 }
 
 .price-quantity-div {
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -54,9 +56,88 @@
 .description-heading {
     font-size: 13px;
     font-family: sans-serif;
+    margin-bottom: 15px;
 }
 
 .description {
     font-size: 16px;
     font-family: sans-serif;
+}
+
+.description-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.quantity-selector {
+    display: flex;
+    flex-direction: column;
+    // height: 47px;
+}
+
+.quantity-label {
+    font-family: Cormorant Garamond; 
+    margin-bottom: 2px;   
+}
+
+.quantity-options-select{
+    height: 47px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.in-stock-label {
+    text-align: center;
+    font-family: Cormorant Garamond;
+}
+
+.buy-now-submit {
+    font-family: sans-serif;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    align-self: center;
+    width: 88%;
+    padding: 12px 18px;
+    font-size: 16px;
+    text-align: center;
+    &:hover{
+        cursor: pointer; 
+        box-shadow: 0px 0px 5px 0px #ccc;
+        -webkit-box-shadow: 0px 0px 5px 0px #ccc;
+        -moz-box-shadow: 0px 0px 5px 0px #ccc;
+        -khtml-box-shadow: 0px 0px 5px 0px #ccc;
+        transition: box-shadow .2s ease-in-out;
+        -webkit-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        transform: scale(1.03) ease-in-out;
+    }
+}
+
+.add-cart-submit {
+    font-family: sans-serif;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    color: white;
+    background: black;
+    align-self: center;
+    width: 88%;
+    padding: 12px 18px;
+    font-size: 16px;
+    text-align: center;
+    &:hover{
+        cursor: pointer; 
+        box-shadow: 0px 0px 5px 0px #ccc;
+        -webkit-box-shadow: 0px 0px 5px 0px #ccc;
+        -moz-box-shadow: 0px 0px 5px 0px #ccc;
+        -khtml-box-shadow: 0px 0px 5px 0px #ccc;
+        transition: box-shadow .2s ease-in-out;
+        -webkit-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        transform: scale(1.03) ease-in-out;
+    }
 }
