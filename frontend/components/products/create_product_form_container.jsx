@@ -10,7 +10,6 @@ const mapStateToProps = (state) => ({
         price: 0,
         description: '', 
         quantity: 0,
-        photoFile: null
     },
     formType: "Add Product"
 })

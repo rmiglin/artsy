@@ -44,7 +44,8 @@ class Api::ProductsController < ApplicationController
             :seller_id,
             :quantity, 
             :price, 
-            :description
+            :description,
+            :photo
         )
     end
 

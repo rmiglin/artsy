@@ -7,6 +7,8 @@ class ProductForm extends React.Component {
         this.state = this.props.product;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.state.photoFile = null;
+        this.state.photoUrl = null;
     }
 
     update(field) {
@@ -15,16 +17,58 @@ class ProductForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
+        const formData = new FormData();
+        formData.append('product[product_name]', this.state.product_name);
+        formData.append('product[price]', this.state.price);
+        formData.append('product[quantity]', this.state.quantity);
+        formData.append('product[description]', this.state.description);
+        if (this.state.photoFile) {
+
+            formData.append('product[photo]', this.state.photoFile);
+        }
+        if(this.props.formType === "Add Product"){
+            $.ajax({
+                url: `/api/users/${this.state.seller_id}/products`,
+                method: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then(
+                (response) => console.log(response.message),
+                (response) => {
+                    console.log(response.responseJSON)
+                }
+            );
+        } else {
+            $.ajax({
+                url: `/api/products/${this.state.id}`,
+                method: 'PATCH',
+                data: formData,
+                contentType: false,
+                processData: false
+            }).then(
+                (response) => console.log(response.message),
+                (response) => {
+                    console.log(response.responseJSON)
+                }
+            );        
+        }
     }
 
     handleFile(e) {
-        debugger;
-        this.setState({["photoFile"]: e.currentTarget.files[0]});
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result});
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     render() {
         console.log(this.state);
+        const preview = this.state.photoUrl ? <img src={this.state.photoUrl}/> : null;
         //debugger;
         return (
             <div className="product-form-wrapper">
@@ -51,6 +95,8 @@ class ProductForm extends React.Component {
                         type="file" 
                         onChange={this.handleFile}
                     />
+                    {preview}
+
                     <label className="input-label">Quantity:</label>
                     <input
                         className="edit-input"

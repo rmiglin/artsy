@@ -819,8 +819,7 @@ var mapStateToProps = function mapStateToProps(state) {
       seller_id: state.session.id,
       price: 0,
       description: '',
-      quantity: 0,
-      photoFile: null
+      quantity: 0
     },
     formType: "Add Product"
   };
@@ -883,7 +882,6 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
     product: state.entities.products[ownProps.match.params.productId],
-    photoFile: null,
     formType: 'Update Product'
   };
 };
@@ -989,6 +987,8 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.product;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
+    _this.state.photoFile = null;
+    _this.state.photoUrl = null;
     return _this;
   }
 
@@ -1005,18 +1005,68 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      this.props.action(this.state);
+      var formData = new FormData();
+      formData.append('product[product_name]', this.state.product_name);
+      formData.append('product[price]', this.state.price);
+      formData.append('product[quantity]', this.state.quantity);
+      formData.append('product[description]', this.state.description);
+
+      if (this.state.photoFile) {
+        formData.append('product[photo]', this.state.photoFile);
+      }
+
+      if (this.props.formType === "Add Product") {
+        $.ajax({
+          url: "/api/users/".concat(this.state.seller_id, "/products"),
+          method: 'POST',
+          data: formData,
+          contentType: false,
+          processData: false
+        }).then(function (response) {
+          return console.log(response.message);
+        }, function (response) {
+          console.log(response.responseJSON);
+        });
+      } else {
+        $.ajax({
+          url: "/api/products/".concat(this.state.id),
+          method: 'PATCH',
+          data: formData,
+          contentType: false,
+          processData: false
+        }).then(function (response) {
+          return console.log(response.message);
+        }, function (response) {
+          console.log(response.responseJSON);
+        });
+      }
     }
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      debugger;
-      this.setState(_defineProperty({}, "photoFile", e.currentTarget.files[0]));
+      var _this3 = this;
+
+      var file = e.currentTarget.files[0];
+      var fileReader = new FileReader();
+
+      fileReader.onloadend = function () {
+        _this3.setState({
+          photoFile: file,
+          photoUrl: fileReader.result
+        });
+      };
+
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state); //debugger;
+      console.log(this.state);
+      var preview = this.state.photoUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.state.photoUrl
+      }) : null; //debugger;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-form-wrapper"
@@ -1045,7 +1095,7 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
         className: "photo-input",
         type: "file",
         onChange: this.handleFile
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }), preview, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "input-label"
       }, "Quantity:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "edit-input",
@@ -2077,7 +2127,9 @@ var createProduct = function createProduct(body) {
     url: "/api/users/".concat(body.seller_id, "/products"),
     data: {
       product: body
-    }
+    },
+    contentType: false,
+    processData: false
   });
 };
 var updateProduct = function updateProduct(body) {
@@ -2087,7 +2139,9 @@ var updateProduct = function updateProduct(body) {
     url: "/api/products/".concat(body.id),
     data: {
       product: body
-    }
+    },
+    contentType: false,
+    processData: false
   });
 };
 var deleteProduct = function deleteProduct(id) {

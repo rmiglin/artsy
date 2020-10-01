@@ -14,7 +14,9 @@ export const createProduct = (body) => {
     return $.ajax({
         method: "POST",
         url: `/api/users/${body.seller_id}/products`,
-        data: {product: body}
+        data: {product: body},
+        contentType: false,
+        processData: false
     });
 }
 
@@ -23,7 +25,9 @@ export const updateProduct = (body) => {
     return $.ajax({
         method: "PATCH",
         url: `/api/products/${body.id}`,
-        data: {product: body}
+        data: {product: body},
+        contentType: false,
+        processData: false
     });
 }
 
