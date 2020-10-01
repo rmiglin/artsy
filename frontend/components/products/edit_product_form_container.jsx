@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     return({
     currentUser: state.entities.users[state.session.id],
     product: state.entities.products[ownProps.match.params.productId],
+    photoFile: null,
     formType: 'Update Product'
     });
 }

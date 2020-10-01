@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
         seller_id: state.session.id,
         price: 0,
         description: '', 
-        quantity: 0
+        quantity: 0,
+        photoFile: null
     },
     formType: "Add Product"
 })

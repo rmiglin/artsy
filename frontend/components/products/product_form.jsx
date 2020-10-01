@@ -5,8 +5,8 @@ class ProductForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.product;
-        this.state["photoFile"] = null;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
     }
 
     update(field) {
@@ -19,11 +19,12 @@ class ProductForm extends React.Component {
     }
 
     handleFile(e) {
-        e.preventDefault();
-        this.setState({photoFile: e.currentTarget.files[0]});
+        debugger;
+        this.setState({["photoFile"]: e.currentTarget.files[0]});
     }
 
     render() {
+        console.log(this.state);
         //debugger;
         return (
             <div className="product-form-wrapper">
@@ -48,7 +49,7 @@ class ProductForm extends React.Component {
                     <input
                         className="photo-input" 
                         type="file" 
-                        onChange={this.handleFile.bind(this)}
+                        onChange={this.handleFile}
                     />
                     <label className="input-label">Quantity:</label>
                     <input

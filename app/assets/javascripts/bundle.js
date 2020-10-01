@@ -819,7 +819,8 @@ var mapStateToProps = function mapStateToProps(state) {
       seller_id: state.session.id,
       price: 0,
       description: '',
-      quantity: 0
+      quantity: 0,
+      photoFile: null
     },
     formType: "Add Product"
   };
@@ -882,6 +883,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     currentUser: state.entities.users[state.session.id],
     product: state.entities.products[ownProps.match.params.productId],
+    photoFile: null,
     formType: 'Update Product'
   };
 };
@@ -985,8 +987,8 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = _this.props.product;
-    _this.state["photoFile"] = null;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleFile = _this.handleFile.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1008,15 +1010,14 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleFile",
     value: function handleFile(e) {
-      e.preventDefault();
-      this.setState({
-        photoFile: e.currentTarget.files[0]
-      });
+      debugger;
+      this.setState(_defineProperty({}, "photoFile", e.currentTarget.files[0]));
     }
   }, {
     key: "render",
     value: function render() {
-      //debugger;
+      console.log(this.state); //debugger;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-form-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1043,7 +1044,7 @@ var ProductForm = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "photo-input",
         type: "file",
-        onChange: this.handleFile.bind(this)
+        onChange: this.handleFile
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "input-label"
       }, "Quantity:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
