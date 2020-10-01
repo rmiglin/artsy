@@ -4,7 +4,6 @@ import { requestProduct, updateProduct } from '../../actions/product_actions';
 import ProductForm from './product_form';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
     return({
     currentUser: state.entities.users[state.session.id],
     product: state.entities.products[ownProps.match.params.productId],

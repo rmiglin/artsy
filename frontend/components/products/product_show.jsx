@@ -11,7 +11,6 @@ class ProductShow extends React.Component {
         this.props.requestProduct(this.props.match.params.productId);
     }
     render() {
-        debugger;
         const { product, users } = this.props;
         return (
             <div className="product-show-div">

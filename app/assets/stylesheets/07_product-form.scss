@@ -1,0 +1,65 @@
+.product-form-wrapper{
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 30px;  
+    height: 100vh;
+}
+
+.product-form-div{
+    width: 500px;
+}
+
+.form-title{
+    font-family: Cormorant Garamond;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.input-label {
+    font-family: sans-serif;
+    margin-bottom: 5px;
+}
+
+.edit-input {
+    margin-bottom: 10px;
+    background: #E9F0FD;
+    width: 100%;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.description-text-area {
+    width: 500px;
+    background: #E9F0FD;
+    height: 100px;
+    text-align: left;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.submit-button {
+    align-content: center;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-radius: 25px;
+    height: 20px;
+    width: 45px;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    vertical-align: center;
+    justify-content: center;
+    flex-direction: column;
+    &:hover{
+        background-color: lightgray;
+        transition: background-color .2s ease-in-out;
+    }
+
+
+}
+
+.photo-input {
+    font-family: sans-serif;
+    margin-bottom: 5px;
+}

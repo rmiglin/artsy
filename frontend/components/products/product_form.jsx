@@ -26,39 +26,47 @@ class ProductForm extends React.Component {
     render() {
         //debugger;
         return (
-            <div>
-                <h1>{this.props.formType}</h1>
+            <div className="product-form-wrapper">
+            <div className="product-form-div">
+                <h1 className="form-title">{this.props.formType}</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Product Name:</label>
+                    <label className="input-label">Product Name:</label>
                     <input
+                        className="edit-input"
                         type="text"
                         value={this.state.product_name}
                         onChange={this.update("product_name")}
                     />
-                    <label>Price:</label>
+                    <label className="input-label">Price:</label>
                     <input 
+                        className="edit-input"
                         type="number" 
                         value={this.state.price} 
                         onChange={this.update("price")}
                         min="0"
                     />
-                    <input type="file" 
+                    <input
+                        className="photo-input" 
+                        type="file" 
                         onChange={this.handleFile.bind(this)}
                     />
-                    <label>Quantity:</label>
+                    <label className="input-label">Quantity:</label>
                     <input
+                        className="edit-input"
                         type="number"
                         value={this.state.quantity}
                         onChange={this.update("quantity")}
                         min="0"
                     />
-                    <label>Description:</label>
+                    <label className="input-label">Description:</label>
                     <textarea
+                        className= "description-text-area"
                         value={this.state.description}
                         onChange={this.update("description")}
                     />
-                    <input type="submit" />
+                    <input className="submit-button" type="submit" />
                 </form>
+            </div>
             </div>
         )
     }
