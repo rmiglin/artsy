@@ -1,0 +1,13 @@
+.cart-div {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.cart-list {
+    display: contents;
+    overflow: scroll;
+    margin: 10px;
+    font-family: Cormorant Garamond;
+}

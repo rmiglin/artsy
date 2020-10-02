@@ -37,11 +37,10 @@ ActiveRecord::Schema.define(version: 2020_09_28_132245) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.integer "shopper_id", null: false
-    t.integer "total", null: false
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shopper_id"], name: "index_carts_on_shopper_id"
   end
 
   create_table "products", force: :cascade do |t|

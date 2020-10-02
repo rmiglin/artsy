@@ -11,13 +11,15 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <footer className="footer-div">
+            <footer>
+                <div className="footer-div">
                 <a href="https://github.com/rmiglin">
                     <FontAwesomeIcon className="github-logo" icon={faGithub} />
                 </a>
                 <a href="https://www.linkedin.com/in/ross-miglin/">
                     <FontAwesomeIcon className="linkedin-logo" icon={faLinkedin} />
                 </a>
+                </div>
             </footer>
         );
     }

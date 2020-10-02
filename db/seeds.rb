@@ -10,6 +10,8 @@ require 'open-uri'
 
 User.destroy_all
 Product.destroy_all
+Cart.destroy_all
+
 user1 = User.create!(email: "demouser@email.com", first_name: "Demo", password: "hunter12")
 user2 = User.create!(email: "karenskrafts@email.com", first_name: "KarensKrafts", password: "krafts123")
 user3 = User.create!(email: "roguewarrior7@email.com", first_name: "RogueWarrior16", password: "rogue_warrior7")

@@ -15,7 +15,7 @@ class Api::ProductsController < ApplicationController
         @product = Product.new(product_params)
         @product.seller_id = current_user.id
         if @product.save        
-            render :show
+            redirect_to products_url
         else
             render json: @product.errors.full_messages, status: 422
         end
@@ -24,7 +24,7 @@ class Api::ProductsController < ApplicationController
     def update
         @product = Product.find(params[:id])
         if @product.update(product_params)
-            render :show
+            render :index
         else
             render json: @product.errors.full_messages, status: 422
         end

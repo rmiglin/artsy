@@ -1,9 +1,14 @@
+footer {
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+}
+
 .footer-div {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    bottom: 0px;   
+    flex-wrap: wrap;  
     background: #83ba57;
     width: 100%;
     font-size: 30px;
@@ -24,4 +29,5 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+
 

@@ -1,5 +1,14 @@
 class Cart < ApplicationRecord
-    validates :shopper_id, presence: true, uniqueness: true
+    validates :user_id, :product_id, presence: true
 
-    has_many :products
+    belongs_to :buyer,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :User
+    
+    belongs_to :product,
+        primary_key: :id, 
+        foreign_key: :product_id,
+        class_name: :Product
+        
 end

@@ -36,8 +36,9 @@ class Nav extends React.Component {
                     </Link>
                     <input type="search" className="search-bar" placeholder="Search for items or shops" results="0"/>
                     {this.userStatus()}
-                    <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>
-
+                    <Link to="/api/session/carts">
+                        <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>
+                    </Link>
                 </div>
                 <div className="dropdown-div">
                     <ul>

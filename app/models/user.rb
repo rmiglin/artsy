@@ -6,9 +6,19 @@ class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     attr_reader :password
 
+    has_many :carted_entries,
+        foreign_key: :user_id,
+        class_name: :Cart
+
+    has_many :carted_products,
+        through: :carted_entries,
+        source: :buyer
+    
+    #############################  
     has_many :products,
         foreign_key: :seller_id,
         class_name: :Product
+    #############################
 
     after_initialize :ensure_session_token 
 

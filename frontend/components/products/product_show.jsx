@@ -1,16 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
+import { createCartedItem } from '../../util/cart_api_util';
 
 class ProductShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = this.props.product;
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         this.props.requestProduct(this.props.match.params.productId);
     }
+
+    handleClick(e){
+        e.preventDefault();
+        this.props.createCartedItem({user_id: this.props.currentUserId, product_id: this.state.id});
+    }
+
     render() {
+        if(!this.props.product){
+            return null;
+        }
         const { product, users } = this.props;
         return (
             <div className="product-show-div">
@@ -33,7 +46,7 @@ class ProductShow extends React.Component {
                             </select>
                         </form>
                     <button className="buy-now-submit">Buy it now</button>
-                    <button className="add-cart-submit">Add to cart</button>   
+                    <button className="add-cart-submit" onClick={this.handleClick}>Add to cart</button>   
                     <div className="description-div">
                         <h1 className="description-heading">Description:</h1>
                         <h1 className="description"> &#10058; {this.props.product.description} &#10058;</h1>
