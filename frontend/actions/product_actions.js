@@ -65,7 +65,7 @@ export const deleteProduct = (productId) => {
 export const updateProduct = (product) => {
     return (dispatch) => {
         return ProductAPIUtil.updateProduct(product).then(product => {
-            debugger;
+            //debugger;
             return dispatch(receiveProduct(product));
         })
     }

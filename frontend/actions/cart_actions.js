@@ -5,7 +5,7 @@ export const RECEIVE_CARTED_ITEM = 'RECEIVE_CARTED_ITEM';
 export const REMOVE_CARTED_ITEM = 'REMOVE_CARTED_ITEM';
 
 const receiveCartedItems = (cartedItems) => {
-    debugger;
+    //debugger;
     return {
         type: RECEIVE_CARTED_ITEMS,
         cartedItems

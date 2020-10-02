@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     //console.log(state.session.id)
     //console.log(state.entities.users[state.session.id]);
     //console.log(state.entities.carts);
-    debugger
+    //debugger
     return ({
         currentUser: state.entities.users[state.session.id],
         //cartedItems: Object.values(state.entities.carts[state.session.id])

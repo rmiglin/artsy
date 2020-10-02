@@ -21,7 +21,7 @@ export const createProduct = (body) => {
 }
 
 export const updateProduct = (body) => {
-    debugger;
+    //debugger;
     return $.ajax({
         method: "PATCH",
         url: `/api/products/${body.id}`,

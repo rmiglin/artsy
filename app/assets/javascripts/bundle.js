@@ -108,7 +108,7 @@ var RECEIVE_CARTED_ITEM = 'RECEIVE_CARTED_ITEM';
 var REMOVE_CARTED_ITEM = 'REMOVE_CARTED_ITEM';
 
 var receiveCartedItems = function receiveCartedItems(cartedItems) {
-  debugger;
+  //debugger;
   return {
     type: RECEIVE_CARTED_ITEMS,
     cartedItems: cartedItems
@@ -263,7 +263,7 @@ var deleteProduct = function deleteProduct(productId) {
 var updateProduct = function updateProduct(product) {
   return function (dispatch) {
     return _util_product_api_util__WEBPACK_IMPORTED_MODULE_0__["updateProduct"](product).then(function (product) {
-      debugger;
+      //debugger;
       return dispatch(receiveProduct(product));
     });
   };
@@ -531,9 +531,9 @@ var CartIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.cartings) {
         return null;
-      }
+      } //debugger;
 
-      debugger;
+
       var products = this.props.products;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-div"
@@ -578,7 +578,7 @@ var mapStateToProps = function mapStateToProps(state) {
   //console.log(state.session.id)
   //console.log(state.entities.users[state.session.id]);
   //console.log(state.entities.carts);
-  debugger;
+  //debugger
   return {
     currentUser: state.entities.users[state.session.id],
     //cartedItems: Object.values(state.entities.carts[state.session.id])
@@ -656,7 +656,7 @@ var CartIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(CartIndexItem, [{
     key: "render",
     value: function render() {
-      debugger;
+      //debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-listing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2128,7 +2128,7 @@ var cartReducer = function cartReducer() {
       return newState;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CARTED_ITEMS"]:
-      debugger;
+      //debugger;
       return action.cartedItems;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CARTED_ITEM"]:
@@ -2536,7 +2536,7 @@ var createProduct = function createProduct(body) {
   });
 };
 var updateProduct = function updateProduct(body) {
-  debugger;
+  //debugger;
   return $.ajax({
     method: "PATCH",
     url: "/api/products/".concat(body.id),

@@ -9,7 +9,7 @@ const cartReducer = (state = {}, action) => {
             newState = Object.assign({}, state, { [action.cartedItem.id]: action.cartedItem });
             return newState;
         case RECEIVE_CARTED_ITEMS:
-            debugger;
+            //debugger;
             return action.cartedItems;
         case REMOVE_CARTED_ITEM:
             newState = Object.assign({}, state);
