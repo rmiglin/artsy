@@ -1,5 +1,16 @@
 # artsy
-Full stack Etsy clone project for App Academy
+Full stack Etsy clone project for App Academy where users can buy and sell products
+
+# site
+https://artsy-store.herokuapp.com/#/
+
+# technologies used 
+I used AWS S3 as a big part of creating and updating my product images displayed on the index and show pages
+
+# product
+
+# cart
+
 
 # README
 

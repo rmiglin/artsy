@@ -531,9 +531,9 @@ var CartIndex = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       if (!this.props.cartings) {
         return null;
-      } //debugger;
+      }
 
-
+      debugger;
       var products = this.props.products;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-div"
@@ -543,6 +543,7 @@ var CartIndex = /*#__PURE__*/function (_React$Component) {
       this.props.cartings.map(function (cartedItem) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           product_name: products[cartedItem.product_id].product_name,
+          picture_url: products[cartedItem.product_id].picture_url,
           key: cartedItem.id
         });
       }))));
@@ -657,11 +658,15 @@ var CartIndexItem = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       //debugger;
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-listing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "edit-delete-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.product_name)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.product_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "product-picture",
+        src: this.props.picture_url
+      })));
     }
   }]);
 

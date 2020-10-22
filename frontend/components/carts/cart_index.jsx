@@ -17,7 +17,7 @@ class CartIndex extends React.Component {
         if(!this.props.cartings){
             return null;
         }
-        //debugger;
+        debugger;
         const {products} = this.props;
         return (
             <div>
@@ -27,6 +27,8 @@ class CartIndex extends React.Component {
                             //cartings.map((cartedItem) => (<>{products[cartedItem.product_id].product_name}</>))
                             this.props.cartings.map((cartedItem) => (<CartIndexItem 
                                 product_name={products[cartedItem.product_id].product_name}
+                                picture_url={products[cartedItem.product_id].picture_url}
+                                
                                 key={cartedItem.id}
                             />))
                         }
