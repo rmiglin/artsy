@@ -527,15 +527,33 @@ var CartIndex = /*#__PURE__*/function (_React$Component) {
     // }
 
   }, {
+    key: "totalPrice",
+    value: function totalPrice() {
+      var _this = this;
+
+      //debugger;
+      var cart_total = 0;
+      this.props.cartings.forEach(function (cartedItem) {
+        return cart_total += _this.props.products[cartedItem.product_id].price;
+      });
+      return cart_total;
+    }
+  }, {
     key: "render",
     value: function render() {
       if (!this.props.cartings) {
         return null;
-      } //debugger;
+      }
 
+      debugger;
+      var products = this.props.products; // let cart_total = 0;
+      // this.props.cartings.each((cartedItem) => {
+      //     cart_total += products[cartedItem.product_id].price;
+      // })
 
-      var products = this.props.products;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-cart-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "cart-list"
@@ -548,7 +566,7 @@ var CartIndex = /*#__PURE__*/function (_React$Component) {
           price: products[cartedItem.product_id].price,
           key: cartedItem.id
         });
-      }))));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Total: ", this.totalPrice())));
     }
   }]);
 
@@ -664,7 +682,7 @@ var CartIndexItem = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-listing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "edit-delete-div"
+        className: "carted-item-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.product_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/products/".concat(this.props.product_id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {

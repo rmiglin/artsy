@@ -1,8 +1,16 @@
+.user-cart-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .cart-div {
     margin: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: space-around;
+
 }
 
 .cart-list {
@@ -10,4 +18,10 @@
     overflow: scroll;
     margin: 10px;
     font-family: Cormorant Garamond;
+}
+
+.carted-item-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
