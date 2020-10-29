@@ -11,6 +11,7 @@ require 'open-uri'
 User.destroy_all
 Product.destroy_all
 Cart.destroy_all
+Review.destroy_all
 
 user1 = User.create!(email: "demouser@email.com", first_name: "Demo", password: "hunter12")
 user2 = User.create!(email: "karenskrafts@email.com", first_name: "KarensKrafts", password: "krafts123")
@@ -232,3 +233,25 @@ product21 = Product.create!(
 )
 file21 = open('https://artsy-store-seed.s3.amazonaws.com/orange-earrings.jpg')
 product21.photo.attach(io: file21, filename: 'orange-earrings.jpg')
+
+review1 = Review.create!(
+    author_id: user1.id,
+    product_id: product1.id,
+    rating: 4,
+    comment: "wonderful handwoven rug, was a little raggedy in places"
+)
+
+review2 = Review.create!(
+    author_id: user2.id,
+    product_id: product1.id,
+    rating: 1,
+    comment: "I've seen better rugs on the curb for free"
+)
+
+review3 = Review.create!(
+    author_id: user2.id,
+    product_id: product2.id,
+    rating: 5,
+    comment: "As someone who loves planting...this is THE perfect pot! Look no further."
+)
+

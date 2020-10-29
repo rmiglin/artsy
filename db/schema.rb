@@ -59,8 +59,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_132245) do
     t.integer "product_id", null: false
     t.integer "rating", null: false
     t.string "comment"
-    t.index ["author_id"], name: "index_reviews_on_author_id"
-    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["author_id", "product_id"], name: "index_reviews_on_author_id_and_product_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

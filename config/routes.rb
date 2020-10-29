@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     end
     resources :users, only: [:new, :create, :index, :show] do
       resources :products, only: [:create]
+      resources :reviews, only: [:create]
     end
     resources :products, only: [:index, :new, :show, :update, :destroy]
+    resources :reviews, only: [:index, :destroy]
   end
   root to: "static_pages#root"
 end

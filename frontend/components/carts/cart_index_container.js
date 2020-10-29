@@ -15,10 +15,8 @@ const mapStateToProps = (state) => {
     //debugger
     return ({
         currentUser: state.entities.users[state.session.id],
-        //cartedItems: Object.values(state.entities.carts[state.session.id])
         cartings: Object.values(state.entities.carts).filter((carts) => carts.user_id === state.session.id),
         products: state.entities.products
-        // carts: state.entities.carts.carts
     })
 }
 

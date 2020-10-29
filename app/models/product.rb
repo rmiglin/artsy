@@ -4,6 +4,10 @@ class Product < ApplicationRecord
     has_many :items_carted,
         foreign_key: :product_id,
         class_name: :Cart
+    
+    has_many :reviews,
+        foreign_key: :product_id,
+        class_name: :Review
 
     #####################################    
     has_one_attached :photo

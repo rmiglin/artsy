@@ -7,11 +7,5 @@ json.users do
         json.partial! 'api/users/user', user: @product.seller
     end
 end
-# json.users do
-#     @products.each do |product|
-#         json.set! product.seller_id do 
-#             json.partial! 'api/users/user', user: product.seller
-#         end
-#     end
-# end
+
 

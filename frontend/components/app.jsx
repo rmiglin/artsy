@@ -14,6 +14,7 @@ import CreateProductFormContainer from './products/create_product_form_container
 import ProductShowContainer from './products/product_show_container';
 import EditProductFormContainer from './products/edit_product_form_container';
 import CartIndexContainer from './carts/cart_index_container';
+import ReviewIndexContainer from './reviews/review_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Footer from './footer/footer';
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route exact path="/products/:productId" component={ProductShowContainer} />
             <ProtectedRoute exact path="/products/:productId/edit" component={EditProductFormContainer} />
             <Route exact path="/api/session/carts" component={CartIndexContainer} />
+            <Route exact path="/api/reviews" component={ReviewIndexContainer} />
             <Route exact path="/" component={ProductIndexContainer} />
         </Switch>
         <Footer />
