@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import { createCartedItem } from '../../util/cart_api_util';
 import ReviewIndexItem from '../reviews/review_index_item';
-import ReviewIndex from '../reviews/review_index';
+import ReviewIndexContainer from '../reviews/review_index_container';
 
 class ProductShow extends React.Component {
 
@@ -55,7 +55,17 @@ class ProductShow extends React.Component {
                     </div>
 
                 </div>
-                <ReviewIndex/>
+                <ReviewIndexContainer/>
+                {/* {
+                this.props.reviews.map((review) => (<ReviewIndex 
+                                reviews={this.props.reviews}
+                                //author_id={review.author_id}
+                                //product_id={review.product_id}
+                                //rating={review.rating}
+                                //comment={review.comment}
+                                //key={review.id}
+                            />))
+                } */}
             </div>
         )
     }

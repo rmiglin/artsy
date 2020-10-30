@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
     requestProduct: productId => dispatch(requestProduct(productId)),
     createCartedItem: product => dispatch(createCartedItem(product)),
-    requestReviews: reviews => dispatch(requestReviews(reviews)),
+    requestReviews: reviews => dispatch(requestReviews()),
     deleteReview: review => dispatch(deleteReview(review))
 })
 

@@ -4,11 +4,11 @@ export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 
-const receiveReviews = (payload) => {
-    debugger;
+const receiveReviews = (reviews) => {
+    //debugger;
     return {
         type: RECEIVE_REVIEWS,
-        reviews: payload.reviews
+        reviews: reviews
     };
 };
 

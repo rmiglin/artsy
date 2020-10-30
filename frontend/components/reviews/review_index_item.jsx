@@ -8,12 +8,14 @@ class ReviewIndexItem extends React.Component {
         return (
             <div className="review-listing">
                 <div className="review-item-div">
+                    {/* <h1>{this.props.author}</h1> */}
                     <h1>{this.props.rating}</h1>
                     <h2>{this.props.comment}</h2>
                 </div>
             </div>
         )
     }
+
 }
 
 export default ReviewIndexItem;

@@ -23,18 +23,13 @@ class CartIndex extends React.Component {
         if(!this.props.cartings){
             return null;
         }
-        debugger;
+        //debugger;
         const {products} = this.props;
-        // let cart_total = 0;
-        // this.props.cartings.each((cartedItem) => {
-        //     cart_total += products[cartedItem.product_id].price;
-        // })
         return (
             <div className="user-cart-div">
                 <div className="cart-div">
                     <ul className="cart-list">
                         {
-                            //cartings.map((cartedItem) => (<>{products[cartedItem.product_id].product_name}</>))
                             this.props.cartings.map((cartedItem) => (<CartIndexItem 
                                 product_name={products[cartedItem.product_id].product_name}
                                 product_id={cartedItem.product_id}
