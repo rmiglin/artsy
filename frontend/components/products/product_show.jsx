@@ -55,17 +55,8 @@ class ProductShow extends React.Component {
                     </div>
 
                 </div>
+                <hr className="separator"/>
                 <ReviewIndexContainer/>
-                {/* {
-                this.props.reviews.map((review) => (<ReviewIndex 
-                                reviews={this.props.reviews}
-                                //author_id={review.author_id}
-                                //product_id={review.product_id}
-                                //rating={review.rating}
-                                //comment={review.comment}
-                                //key={review.id}
-                            />))
-                } */}
             </div>
         )
     }

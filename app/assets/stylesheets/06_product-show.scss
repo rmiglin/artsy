@@ -140,3 +140,14 @@
         transform: scale(1.03) ease-in-out;
     }
 }
+
+hr {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.separator {
+    flex-wrap: wrap;
+    flex-direction: row;   
+    width: 100%;
+}
