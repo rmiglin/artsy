@@ -1932,10 +1932,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _review_index_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./review_index_item */ "./frontend/components/reviews/review_index_item.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _review_index_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./review_index_item */ "./frontend/components/reviews/review_index_item.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1962,6 +1964,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewIndex, _React$Component);
 
@@ -1979,26 +1983,61 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
       this.props.requestReviews();
     }
   }, {
+    key: "averageReview",
+    value: function averageReview() {
+      //debugger;
+      var star_total = 0;
+      this.props.reviews.forEach(function (review) {
+        return star_total += review.rating;
+      });
+      var star_avg = star_total / this.props.reviews.length;
+      return Math.ceil(star_avg);
+    }
+  }, {
+    key: "printStar",
+    value: function printStar(rating) {
+      var stars = [];
+
+      for (var i = 0; i < rating; i++) {
+        stars.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
+          className: "star",
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faStar"],
+          key: i
+        }));
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, stars);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       if (!this.props.reviews) {
         return null;
       }
 
       debugger;
-      var users = this.props.users.users; //const {products} = this.props;
+      var users = this.props.users.users; //console.log(users);
+      //const {products} = this.props;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "user-review-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "review-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "avg-review-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
+        className: "reviews-header"
+      }, this.props.reviews.length, " reviews"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "stars-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
+        className: "avg-stars-array"
+      }, this.printStar(this.averageReview())))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", {
         className: "review-list"
       }, this.props.reviews.map(function (review) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_2__["default"] //product_name={products[cartedItem.product_id].product_name}
-        //author={users[review.author_id].first_name}
-        //currentUser={review.currentUser}
-        , {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          author: _this.props.users[review.author_id].first_name,
           author_id: review.author_id,
           product_id: review.product_id,
           rating: review.rating,
@@ -2010,7 +2049,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return ReviewIndex;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (ReviewIndex);
 
@@ -2035,12 +2074,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  console.log(state);
-  console.log(state.entities.reviews);
-  console.log(Object.values(state.entities.reviews)); //console.log(state.session.id)
+  //console.log(state);
+  //console.log(state.entities.reviews);
+  //console.log(Object.values(state.entities.reviews));
+  //console.log(state.session.id)
   //console.log(state.entities.users[state.session.id]);
   //console.log(state.entities.carts);
-
   debugger;
   return {
     currentUser: state.entities.users[state.session.id],
@@ -2109,6 +2148,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
   _inherits(ReviewIndexItem, _React$Component);
 
@@ -2143,8 +2183,17 @@ var ReviewIndexItem = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "review-item-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "comment-user-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
+        className: "author-circle",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUserCircle"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
+        className: "author"
+      }, this.props.author)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "stars-div"
-      }, this.printStar(this.props.rating)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", {
+        className: "stars-array"
+      }, this.printStar(this.props.rating))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h2", {
         className: "comment"
       }, "\"", this.props.comment, "\"")));
     }

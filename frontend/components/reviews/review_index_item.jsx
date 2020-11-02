@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -17,8 +18,12 @@ class ReviewIndexItem extends React.Component {
         return (
             <div className="review-listing">
                 <div className="review-item-div">
+                    <div className="comment-user-div">
+                    <FontAwesomeIcon className="author-circle" icon={faUserCircle} /> 
+                    <h1 className="author">{this.props.author}</h1>
+                    </div>
                     <div className="stars-div">
-                        {this.printStar(this.props.rating)}
+                        <h1 className="stars-array">{this.printStar(this.props.rating)}</h1>
                     </div>
                     <h2 className="comment">"{this.props.comment}"</h2>
                 </div>

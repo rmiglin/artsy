@@ -5,9 +5,9 @@ import { requestReviews, deleteReview } from '../../actions/review_actions';
 import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
-    console.log(state.entities.reviews);
-    console.log(Object.values(state.entities.reviews));
+    //console.log(state);
+    //console.log(state.entities.reviews);
+    //console.log(Object.values(state.entities.reviews));
     //console.log(state.session.id)
     //console.log(state.entities.users[state.session.id]);
     //console.log(state.entities.carts);
