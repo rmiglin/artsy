@@ -1803,7 +1803,11 @@ var ProductShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.requestProduct(this.props.match.params.productId);
-    }
+    } // componentWillReceiveProps() {
+    //     this.setState(this.props.product);
+    //     this.setState(this.props.reviews);
+    // }
+
   }, {
     key: "handleClick",
     value: function handleClick(e) {
@@ -2019,7 +2023,10 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     _this.state = _this.props.review;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // componentWillReceiveProps() {
+  //     this.setState(this.props.review);
+  // }
+
 
   _createClass(ReviewForm, [{
     key: "update",

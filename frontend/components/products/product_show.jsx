@@ -18,6 +18,11 @@ class ProductShow extends React.Component {
         this.props.requestProduct(this.props.match.params.productId);
     }
 
+    // componentWillReceiveProps() {
+    //     this.setState(this.props.product);
+    //     this.setState(this.props.reviews);
+    // }
+
     handleClick(e){
         e.preventDefault();
         this.props.createCartedItem({user_id: this.props.currentUserId, product_id: this.state.id});

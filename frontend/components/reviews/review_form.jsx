@@ -8,6 +8,10 @@ class ReviewForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // componentWillReceiveProps() {
+    //     this.setState(this.props.review);
+    // }
+
     update(field) {
         if (field==="rating") {
             return (e => this.setState({ [field]: parseInt(e.currentTarget.value) }));
