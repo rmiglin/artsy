@@ -151,3 +151,9 @@ hr {
     flex-direction: row;   
     width: 100%;
 }
+
+.containers-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

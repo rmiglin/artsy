@@ -13,7 +13,6 @@ class ReviewIndex extends React.Component {
     }
 
     averageReview(){
-        //debugger;
         let star_total = 0;
         this.props.reviews.forEach((review) => star_total += review.rating);
         let star_avg = star_total/this.props.reviews.length;
@@ -32,10 +31,7 @@ class ReviewIndex extends React.Component {
         if(!this.props.reviews){
             return null;
         }
-        debugger;
         const {users} = this.props.users;
-        //console.log(users);
-        //const {products} = this.props;
         return (
             <div className="user-review-div">
                 <div className="review-div">

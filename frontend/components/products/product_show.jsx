@@ -4,6 +4,7 @@ import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 import { createCartedItem } from '../../util/cart_api_util';
 import ReviewIndexItem from '../reviews/review_index_item';
 import ReviewIndexContainer from '../reviews/review_index_container';
+import CreateReviewContainer from '../reviews/create_review_form_container';
 
 class ProductShow extends React.Component {
 
@@ -56,7 +57,10 @@ class ProductShow extends React.Component {
 
                 </div>
                 <hr className="separator"/>
-                <ReviewIndexContainer/>
+                <div className="containers-div">
+                    <ReviewIndexContainer/>
+                    <CreateReviewContainer/>
+                </div>
             </div>
         )
     }
