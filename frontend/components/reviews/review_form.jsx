@@ -12,6 +12,18 @@ class ReviewForm extends React.Component {
     //     this.setState(this.props.review);
     // }
 
+    // componentDidUpdate() {
+    //     if (this.prevState !== this.state) {
+    //         this.setState(this.props.review)
+    //     }
+    // }
+
+    // componentDidUpdate(prevProps){
+    //     if(prevProps.loggedIn !== this.props.loggedIn){
+    //         this.userStatus();
+    //     }
+    // }
+
     update(field) {
         if (field==="rating") {
             return (e => this.setState({ [field]: parseInt(e.currentTarget.value) }));
@@ -38,6 +50,7 @@ class ReviewForm extends React.Component {
                 console.log(response.responseJSON)
             }
         );
+        //this.setState(this.state)
     }
 
     render() {

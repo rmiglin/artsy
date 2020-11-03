@@ -28,7 +28,7 @@ export const demoUser = () => {
         data: {
             user: {
                 email: 'demouser@email.com',
-                first_name: 'demo',
+                first_name: 'Demo',
                 password: 'hunter12'
             }
         }

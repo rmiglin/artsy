@@ -672,12 +672,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  //console.log(state)
-  //console.log(Object.values(state.entities.carts[]))
-  //console.log(state.session.id)
-  //console.log(state.entities.users[state.session.id]);
-  //console.log(state.entities.carts);
-  //debugger
   return {
     currentUser: state.entities.users[state.session.id],
     cartings: Object.values(state.entities.carts).filter(function (carts) {
@@ -753,8 +747,6 @@ var CartIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(CartIndexItem, [{
     key: "render",
     value: function render() {
-      //debugger;
-      //debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "product-listing"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2026,6 +2018,16 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
   } // componentWillReceiveProps() {
   //     this.setState(this.props.review);
   // }
+  // componentDidUpdate() {
+  //     if (this.prevState !== this.state) {
+  //         this.setState(this.props.review)
+  //     }
+  // }
+  // componentDidUpdate(prevProps){
+  //     if(prevProps.loggedIn !== this.props.loggedIn){
+  //         this.userStatus();
+  //     }
+  // }
 
 
   _createClass(ReviewForm, [{
@@ -2062,7 +2064,7 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
         return console.log(response.message);
       }, function (response) {
         console.log(response.responseJSON);
-      });
+      }); //this.setState(this.state)
     }
   }, {
     key: "render",
@@ -3346,7 +3348,7 @@ var demoUser = function demoUser() {
     data: {
       user: {
         email: 'demouser@email.com',
-        first_name: 'demo',
+        first_name: 'Demo',
         password: 'hunter12'
       }
     }

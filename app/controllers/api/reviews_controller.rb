@@ -2,12 +2,6 @@ class Api::ReviewsController < ApplicationController
     before_action :ensure_logged_in!, only: [:index, :create, :destroy]
 
     def index
-        #debugger
-        # if (params[:filterByProduct])
-        #     @reviews = Review.where(product_id: params[:filterByProduct])
-        # else
-        #     @reviews = Review.all 
-        # end
         @reviews = Review.all
 
         render :index

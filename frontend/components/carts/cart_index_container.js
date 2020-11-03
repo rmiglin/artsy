@@ -7,12 +7,6 @@ import {
 } from '../../actions/cart_actions';
 
 const mapStateToProps = (state) => {
-    //console.log(state)
-    //console.log(Object.values(state.entities.carts[]))
-    //console.log(state.session.id)
-    //console.log(state.entities.users[state.session.id]);
-    //console.log(state.entities.carts);
-    //debugger
     return ({
         currentUser: state.entities.users[state.session.id],
         cartings: Object.values(state.entities.carts).filter((carts) => carts.user_id === state.session.id),

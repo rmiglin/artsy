@@ -3,8 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 
 class CartIndexItem extends React.Component {
     render() {
-        //debugger;
-        //debugger;
         return (
             <div className="product-listing">
                 <div className="carted-item-div">

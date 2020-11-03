@@ -235,7 +235,7 @@ file21 = open('https://artsy-store-seed.s3.amazonaws.com/orange-earrings.jpg')
 product21.photo.attach(io: file21, filename: 'orange-earrings.jpg')
 
 review1 = Review.create!(
-    author_id: user1.id,
+    author_id: user3.id,
     product_id: product1.id,
     rating: 4,
     comment: "wonderful handwoven rug, was a little raggedy in places"
@@ -254,4 +254,88 @@ review3 = Review.create!(
     rating: 5,
     comment: "As someone who loves planting...this is THE perfect pot! Look no further."
 )
+
+review4 = Review.create!(
+    author_id: user3.id,
+    product_id: product2.id,
+    rating: 3,
+    comment: "This pot didn't hold up too well when I put my cactus in it. Worked well for other plants though"
+)
+
+review5 = Review.create!(
+    author_id: user4.id,
+    product_id: product2.id,
+    rating: 4,
+    comment: "Really quality pot! It's held up in my garden even after several hurricanes swept through"
+)
+
+review6 = Review.create!(
+    author_id: user2.id,
+    product_id: product3.id,
+    rating: 1,
+    comment: "These are the kind of erasers that leave the BLACK RUB MARKS after you use them >:( 0/10"
+)
+
+review7 = Review.create!(
+    author_id: user6.id,
+    product_id: product3.id,
+    rating: 2,
+    comment: "I have bought from this seller many times with excellent results. I'm disappointed they didn't carry through with their quality this time."
+)
+
+review8 = Review.create!(
+    author_id: user7.id,
+    product_id: product3.id,
+    rating: 3,
+    comment: "They smell good! And they work great! I just wish I could EAT them!"
+)
+
+review9 = Review.create!(
+    author_id: user4.id,
+    product_id: product3.id,
+    rating: 5,
+    comment: "Bought these for my kids. They can't get enough of them!"
+)
+
+review10 = Review.create!(
+    author_id: user5.id,
+    product_id: product4.id,
+    rating: 5,
+    comment: "I've been hesitant to buy plants online in the past, but this seller was careful and delicate in their packing. This monstera deliciosa looks beautiful in my kitchen."
+)
+
+review11 = Review.create!(
+    author_id: user2.id,
+    product_id: product4.id,
+    rating: 5,
+    comment: "This lush plant is the statement piece of my living room!"
+)
+
+review12 = Review.create!(
+    author_id: user3.id,
+    product_id: product5.id,
+    rating: 4,
+    comment: "I love the charms! The fit is a little loose"
+)
+
+review13 = Review.create!(
+    author_id: user7.id,
+    product_id: product5.id,
+    rating: 4,
+    comment: "I wish they had more charm selections..."
+)
+
+review14 = Review.create!(
+    author_id: user4.id,
+    product_id: product6.id,
+    rating: 1,
+    comment: "Cheap rackets! The set broke a week after we bought it!"
+)
+
+# review4 = Review.create!(
+#     author_id: ,
+#     product_id: ,
+#     rating: ,
+#     comment: ""
+# )
 
