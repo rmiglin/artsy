@@ -11,7 +11,40 @@
 
 .centered-text {
     position: absolute;
-    top: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-size: 48px;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+h2 {
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+
+.splash-text-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.splash-paragraph-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 275px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
