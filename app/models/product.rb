@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    validates :product_name, :seller_id, :price, :description, :quantity, presence: true
+    validates :product_name, :seller_id, :price, :description, :quantity, :photo, presence: true
 
     has_many :items_carted,
         foreign_key: :product_id,

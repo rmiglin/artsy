@@ -16,7 +16,6 @@ import EditProductFormContainer from './products/edit_product_form_container';
 import CartIndexContainer from './carts/cart_index_container';
 import ReviewIndexContainer from './reviews/review_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import Splash from './splash/splash';
 import Footer from './footer/footer';
 
 const App = () => (
@@ -34,7 +33,6 @@ const App = () => (
             <Route exact path="/api/reviews" component={ReviewIndexContainer} />
             <Route exact path="/" component={ProductIndexContainer} />
         </Switch>
-        <Splash/>
         <Footer />
     </div>
 );

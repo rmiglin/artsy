@@ -22,10 +22,11 @@ class ProductForm extends React.Component {
         formData.append('product[price]', this.state.price);
         formData.append('product[quantity]', this.state.quantity);
         formData.append('product[description]', this.state.description);
-        if (this.state.photoFile) {
+        formData.append('product[photo]', this.state.photoFile);
+        // if (this.state.photoFile) {
 
-            formData.append('product[photo]', this.state.photoFile);
-        }
+        //     formData.append('product[photo]', this.state.photoFile);
+        // }
         if(this.props.formType === "Add Product"){
             $.ajax({
                 url: `/api/users/${this.state.seller_id}/products`,
