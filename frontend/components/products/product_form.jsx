@@ -73,48 +73,60 @@ class ProductForm extends React.Component {
         //debugger;
         return (
             <div className="product-form-wrapper">
-            <div className="product-form-div">
-                <h1 className="form-title">{this.props.formType}</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label className="input-label">Product Name:</label>
-                    <input
-                        className="edit-input"
-                        type="text"
-                        value={this.state.product_name}
-                        onChange={this.update("product_name")}
-                    />
-                    <label className="input-label">Price:</label>
-                    <input 
-                        className="edit-input"
-                        type="number" 
-                        value={this.state.price} 
-                        onChange={this.update("price")}
-                        min="0"
-                    />
-                    <input
-                        className="photo-input" 
-                        type="file" 
-                        onChange={this.handleFile}
-                    />
-                    {preview}
-
-                    <label className="input-label">Quantity:</label>
-                    <input
-                        className="edit-input"
-                        type="number"
-                        value={this.state.quantity}
-                        onChange={this.update("quantity")}
-                        min="0"
-                    />
-                    <label className="input-label">Description:</label>
-                    <textarea
-                        className= "description-text-area"
-                        value={this.state.description}
-                        onChange={this.update("description")}
-                    />
-                    <input className="submit-button" type="submit" />
-                </form>
-            </div>
+                <div className="product-form-div">
+                    <h1 className="form-title">{this.props.formType}</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-element-div">
+                            <label className="input-label">Product Name:</label>
+                            <input
+                                className="edit-input"
+                                type="text"
+                                value={this.state.product_name}
+                                onChange={this.update("product_name")}
+                            />
+                        </div>
+                        <div className="form-element-div">
+                            <label className="input-label">Price:</label>
+                            <input 
+                                className="edit-input"
+                                type="number" 
+                                value={this.state.price} 
+                                onChange={this.update("price")}
+                                min="0"
+                            />
+                        </div>
+                        <div className="form-element-div">
+                            <label className="input-label">Photo:</label>
+                            <input
+                                className="photo-input" 
+                                type="file" 
+                                onChange={this.handleFile}
+                            />
+                            {preview}
+                        </div>
+                        <div className="form-element-div">
+                            <label className="input-label">Quantity:</label>
+                            <input
+                                className="edit-input"
+                                type="number"
+                                value={this.state.quantity}
+                                onChange={this.update("quantity")}
+                                min="0"
+                            />
+                        </div>
+                        <div className="form-element-div">
+                            <label className="input-label">Description:</label>
+                            <textarea
+                                className= "description-text-area"
+                                value={this.state.description}
+                                onChange={this.update("description")}
+                            />
+                        </div>
+                        <div className="submit-div">
+                            <input className="submit-button" type="submit" />
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }
