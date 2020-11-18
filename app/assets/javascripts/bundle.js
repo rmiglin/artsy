@@ -2779,7 +2779,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "centered-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", {
         className: "splash-title"
-      }, "What is Etsy?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "What is Artsy?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "splash-text-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "splash-paragraph-div"
@@ -2787,13 +2787,13 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-paragraph-title"
       }, "A one-of-a-kind community"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
         className: "splash-paragraph-text"
-      }, "Etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "Artsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "splash-paragraph-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
         className: "splash-paragraph-title"
       }, "Support independent creators"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", {
         className: "splash-paragraph-text"
-      }, "There\u2019s no Etsy warehouse \u2013 just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+      }, "There\u2019s no Artsy warehouse \u2013 just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "splash-paragraph-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
         className: "splash-paragraph-title"

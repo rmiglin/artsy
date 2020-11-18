@@ -11,15 +11,15 @@ class Splash extends React.Component {
                 <div className="splash-div">
                     <img src={window.banner} alt='etsy banner'/>
                     <div className="centered-text">
-                        <h1 className="splash-title">What is Etsy?</h1>
+                        <h1 className="splash-title">What is Artsy?</h1>
                         <div className="splash-text-div">
                             <div className="splash-paragraph-div">
                                 <h2 className="splash-paragraph-title">A one-of-a-kind community</h2>
-                                <h3 className="splash-paragraph-text">Etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items.</h3>
+                                <h3 className="splash-paragraph-text">Artsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items.</h3>
                             </div>
                             <div className="splash-paragraph-div">
                                 <h2 className="splash-paragraph-title">Support independent creators</h2>
-                                <h3 className="splash-paragraph-text">There’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.</h3>
+                                <h3 className="splash-paragraph-text">There’s no Artsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.</h3>
                             </div>
                             <div className="splash-paragraph-div">
                                 <h2 className="splash-paragraph-title">Peace of mind</h2>

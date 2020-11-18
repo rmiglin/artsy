@@ -46,7 +46,7 @@ product2.photo.attach(io: file2, filename: 'clay-planting-pot.jpg')
 
 product3 = Product.create!(
     product_name: "Rubber Pencil Toppers Set",
-    seller_id: user3.id,
+    seller_id: user1.id,
     price: 5,
     quantity: 40,
     description: "these zany rubbers go great on any #2 pencil"
