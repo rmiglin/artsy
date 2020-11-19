@@ -33,3 +33,11 @@ Artsy uses:
 * AWS S3 for updating and displaying product images
 
 # Primary Components 
+
+**User Authorization
+
+**Products
+
+**Reviews
+
+**Search
