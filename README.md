@@ -28,9 +28,9 @@ The frontend is built with ReactJS components to allow for page refreshes withou
 
 Artsy uses:
 
-* ReactJS
-* BCrypt for user authorization
-* AWS S3 for updating and displaying product images
+* [ReactJS](https://reactjs.org/)
+* [BCrypt](https://www.npmjs.com/package/bcrypt) for user authorization
+* [AWS S3](https://aws.amazon.com/s3/) for updating and displaying product images
 
 # Primary Components 
 
