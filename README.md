@@ -34,10 +34,10 @@ Artsy uses:
 
 # Primary Components 
 
-**User Authorization
+**User Authorization**
 
-**Products
+**Products**
 
-**Reviews
+**Reviews**
 
-**Search
+**Search**
