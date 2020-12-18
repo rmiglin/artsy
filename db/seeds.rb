@@ -119,7 +119,7 @@ product10 = Product.create!(
     seller_id: user7.id,
     price: 17,
     quantity: 100,
-    description: "I turn pictures into art!"
+    description: "I make banners for celebrations, birthdays, and holidays!"
 )
 file10 = open('https://artsy-store-seed.s3.amazonaws.com/custom-banner.jpg')
 product10.photo.attach(io: file10, filename: 'custom-banner.jpg')
@@ -330,6 +330,139 @@ review14 = Review.create!(
     product_id: product6.id,
     rating: 1,
     comment: "Cheap rackets! The set broke a week after we bought it!"
+)
+
+review15 = Review.create!(
+    author_id: user1.id,
+    product_id: product6.id,
+    rating: 2,
+    comment: "I thought this set would be great for the kids. However, these rackets didn't stay together for longer than a couple weeks."
+)
+
+review16 = Review.create!(
+    author_id: user7.id,
+    product_id: product6.id,
+    rating: 1,
+    comment: "Not the best build quality. Buy elsewhere."
+)
+
+review17 = Review.create!(
+    author_id: user5.id,
+    product_id: product7.id,
+    rating: 5,
+    comment: "I love these little candles :-) They go well in any space. I could not recommend more."
+)
+
+review18 = Review.create!(
+    author_id: user4.id,
+    product_id: product7.id,
+    rating: 5,
+    comment: "My wife and I have been using these all over the apartment. They definitely warm up the space!"
+)
+
+review19 = Review.create!(
+    author_id: user2.id,
+    product_id: product8.id,
+    rating: 5,
+    comment: "As someone who has barbecues in my backyard frequently...I find myself pulling out this cornhole set almost every weekend! Sturdy, weather-resistant, everyone loves it!"
+)
+
+review20 = Review.create!(
+    author_id: user6.id,
+    product_id: product8.id,
+    rating: 5,
+    comment: "Don't pass up on this cornhole set! It's the best one I've used to-date."
+)
+
+review21 = Review.create!(
+    author_id: user1.id,
+    product_id: product9.id,
+    rating: 5,
+    comment: "She did an absolutely beautiful job with my photos. I would definitely recommend to anyone looking to have beautiful art made of their pictures."
+)
+
+review22 = Review.create!(
+    author_id: user3.id,
+    product_id: product9.id,
+    rating: 4,
+    comment: "Gorgeous artwork. The only reason I'm giving 4 and not 5 is because there was a bit of color inconsistency with some of the picture to art conversion."
+)
+
+review23 = Review.create!(
+    author_id: user4.id,
+    product_id: product10.id,
+    rating: 5,
+    comment: "I had a banner made for my birthday and it came out so lovely."
+)
+
+review24 = Review.create!(
+    author_id: user7.id,
+    product_id: product11.id,
+    rating: 3,
+    comment: "The lamp shades were great! However...for the price...I was expecting higher quality materials."
+)
+
+review25 = Review.create!(
+    author_id: user6.id,
+    product_id: product12.id,
+    rating: 5,
+    comment: "I bought these for my girlfriend and she loved them!"
+)
+
+review26 = Review.create!(
+    author_id: user3.id,
+    product_id: product12.id,
+    rating: 5,
+    comment: "More Pikachu!!! :3"
+)
+
+review27 = Review.create!(
+    author_id: user6.id,
+    product_id: product13.id,
+    rating: 5,
+    comment: "Super fashionable and super warm. I love the hand-knitting!"
+)
+
+review28 = Review.create!(
+    author_id: user1.id,
+    product_id: product13.id,
+    rating: 4,
+    comment: "Great product, but the knitting came undone on my second wear!"
+)
+
+review29 = Review.create!(
+    author_id: user7.id,
+    product_id: product13.id,
+    rating: 4,
+    comment: "Beautiful but the sizing wasn't right!"
+)
+
+review30 = Review.create!(
+    author_id: user5.id,
+    product_id: product14.id,
+    rating: 5,
+    comment: "Great colors! I loved painting with these."
+)
+
+review31 = Review.create!(
+    author_id: user3.id,
+    product_id: product14.id,
+    rating: 3,
+    comment: "My paints came dried and cracked! I mixed in a little water and then they were really nice."
+)
+
+review32 = Review.create!(
+    author_id: user7.id,
+    product_id: product15.id,
+    rating: 5,
+    comment: "Lovely wedding dress. I actually bought this for an art project and it worked out great."
+)
+
+review33 = Review.create!(
+    author_id: user4.id,
+    product_id: product16.id,
+    rating: 5,
+    comment: "My eight-year-old absolutely loves these!"
 )
 
 # review4 = Review.create!(
