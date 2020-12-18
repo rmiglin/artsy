@@ -1,38 +1,43 @@
-# artsy
-Full stack Etsy clone project for App Academy where users can buy and sell products
+# Artsy
+![Artsy Screenshot](/app/assets/images/artsy-screenshot.png)
 
-# site
-https://artsy-store.herokuapp.com/#/
+# Summary
+[Artsy](https://artsy-store.herokuapp.com/#/) is a single-page, full-stack web application clone of Etsy's e-commerce site built with Ruby on Rails, ReactJS, and Redux. Artsy allows users to: 
 
-# technologies used 
-I used AWS S3 as a big part of creating and updating my product images displayed on the index and show pages
+* Create an account
+* Sign up / Log in / Log out
+* Add, edit, and delete products
+* View detailed information on each product
+* Review (rating and comment) products
+* Add products to cart
+* View total cost of carted items
+* Search all products in store
+* View products by category
 
-# product
+# Structure
 
-# cart
+**Back end**
 
+Artsy is built on a Ruby on Rails backend with a postgreSQL databse architecture. The back end is built using RESTful routes and JSON-formatted AJAX requests. The data associations minimize necessary SQL queries and create faster refresh. 
 
-# README
+**Front end**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The frontend is built with ReactJS components to allow for page refreshes without server requests. 
 
-Things you may want to cover:
+**Libraries**
 
-* Ruby version
+Artsy uses:
 
-* System dependencies
+* [ReactJS](https://reactjs.org/)
+* [BCrypt](https://www.npmjs.com/package/bcrypt) for user authorization
+* [AWS S3](https://aws.amazon.com/s3/) for updating and displaying product images
 
-* Configuration
+# Primary Components 
 
-* Database creation
+**User Authorization**
 
-* Database initialization
+**Products**
 
-* How to run the test suite
+**Reviews**
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Search**
