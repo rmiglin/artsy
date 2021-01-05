@@ -54,6 +54,14 @@ export const requestProducts = () => {
     }
 }
 
+export const requestProductsByProduct = (id) => {
+    return (dispatch) => {
+        return ProductAPIUtil.fetchProducts({filterByProduct: id}).then((products) => {
+            dispatch(receiveProducts(products));
+        });
+    };
+};
+
 export const deleteProduct = (productId) => {
     return (dispatch) => {
         return ProductAPIUtil.deleteProduct(productId).then(product => {

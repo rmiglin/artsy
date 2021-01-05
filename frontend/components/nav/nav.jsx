@@ -1,15 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {ClickDropdown} from '../dropdown/dropdown';
+import SearchContainer from './search_container';
 
 class Nav extends React.Component {
     constructor(props) {
         super(props);
     }
+
 
     userStatus (){
         return this.props.loggedIn ? 
@@ -34,7 +36,7 @@ class Nav extends React.Component {
                     <Link to="/" className="header-link">
                         <h1>Artsy</h1>
                     </Link>
-                    <input type="search" className="search-bar" placeholder="Search for items or shops" results="0"/>
+                    <SearchContainer/>
                     {this.userStatus()}
                     <Link to="/api/session/carts">
                         <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>
