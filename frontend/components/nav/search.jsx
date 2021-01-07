@@ -7,6 +7,10 @@ class SearchBar extends React.Component {
         this.state = {title: ""};
     }
 
+    componentDidMount(){
+        this.setState();
+    }
+
     handleSubmit(e){
         e.preventDefault();
         console.log("handle submit successful");
@@ -26,9 +30,9 @@ class SearchBar extends React.Component {
             <div className="search-div">
                 <form onSubmit={this.handleSubmit}>
                     <input 
-                        type="search" 
-                        className="search-bar" 
-                        placeholder="Search for items or shops" 
+                        type="search"
+                        className="search-bar"
+                        placeholder="Search for items or shops"
                         value={this.state.title}
                         onChange={this.handleInput('title')}
                         //results="0"    

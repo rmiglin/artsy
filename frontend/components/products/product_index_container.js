@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import ProductIndex from './product_index';
 import {
     requestProducts,
     deleteProduct
 } from '../../actions/product_actions';
+import { requestProductsByProduct} from '../../actions/product_actions';
 
-const mapStateToProps = (state) => {
+import Search from '../nav/search';
+
+const mapStateToProps = (state, ownProps) => {
     //console.log(state)
+    let title = ownProps.location.search.split("=")[1];
+    let products = (title == "" || title == undefined)  ? Object.values(state.entities.products) : Object.values(state.entities.products).filter((products) => products.product_name.includes(title));
+    debugger;
     return({
         currentUser: state.entities.users[state.session.id],
-        products: Object.values(state.entities.products),
+        products,
+        //products: Object.values(state.entities.products),
         users: state.entities.users
     })
 }
@@ -22,3 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductIndex);
+// export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

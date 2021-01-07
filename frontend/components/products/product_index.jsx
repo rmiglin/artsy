@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 
 import ProductIndexItem from './product_index_item';
 import Splash from '../splash/splash';
+import Search from '../nav/search';
+
 class ProductIndex extends React.Component {
+
+    constructor(props){
+        super(props);
+        console.log(props);
+    }
 
     componentDidMount() {
         this.props.requestProducts();
