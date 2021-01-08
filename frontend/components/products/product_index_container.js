@@ -11,9 +11,9 @@ import Search from '../nav/search';
 
 const mapStateToProps = (state, ownProps) => {
     //console.log(state)
-    let title = ownProps.location.search.split("=")[1];
-    let products = (title == "" || title == undefined)  ? Object.values(state.entities.products) : Object.values(state.entities.products).filter((products) => products.product_name.includes(title));
-    debugger;
+    //let title = ownProps.location.search.split("=")[1];
+    let products = Object.values(state.entities.products);
+    // debugger;
     return({
         currentUser: state.entities.users[state.session.id],
         products,

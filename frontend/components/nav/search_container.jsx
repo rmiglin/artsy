@@ -9,7 +9,7 @@ import Search from './search';
 const mapStateToProps = (state, ownProps) => {
     let title = ownProps.location.search.split("=")[1];
     let products = Object.values(state.entities.products).filter((products) => products.product_name.includes(title));
-    debugger;
+    //debugger;
     return {
         products
         //{title: ownProps.location.search.split("=")};
@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    debugger;
+    //debugger;
     //let title = ownProps.location.search.split("=")[1];
     //figure this lookup out and you've got it! either a .contains or === for the title value
     

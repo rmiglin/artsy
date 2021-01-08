@@ -1210,8 +1210,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
   var title = ownProps.location.search.split("=")[1];
   var products = Object.values(state.entities.products).filter(function (products) {
     return products.product_name.includes(title);
-  });
-  debugger;
+  }); //debugger;
+
   return {
     products: products //{title: ownProps.location.search.split("=")};
 
@@ -1219,9 +1219,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
-  debugger; //let title = ownProps.location.search.split("=")[1];
+  //debugger;
+  //let title = ownProps.location.search.split("=")[1];
   //figure this lookup out and you've got it! either a .contains or === for the title value
-
   return {
     requestProducts: function requestProducts() {
       return dispatch(Object(_actions_product_actions__WEBPACK_IMPORTED_MODULE_2__["requestProductsByProduct"])());
@@ -1627,37 +1627,103 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, ProductIndex);
 
-    _this = _super.call(this, props);
-    console.log(props);
+    _this = _super.call(this, props); //debugger;
+
+    console.log(props); // let products = (title == "" || title == undefined)  ? Object.values(state.entities.products) : Object.values(state.entities.products).filter((products) => products.product_name.includes(title));
+
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this)); //this.testSearch.bind(this);
+
+    _this.state = {
+      filtered: props.products
+    };
     return _this;
   }
 
   _createClass(ProductIndex, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      debugger;
+      var products = this.props.products;
+      var currentList = [];
+
+      if (e.target.value !== "") {
+        //if != "" filter based on search criteria for product name
+        // set searched to true
+        // Object.values(state.entities.products).filter((products) => products.product_name.includes(title));
+        //this.setState({filtered : products.filter((products) => products.product_name.includes(e.target.value))});
+        currentList = products.filter(function (products) {
+          return products.product_name.includes(e.target.value);
+        });
+        debugger;
+        this.setState({
+          searched: true
+        });
+        debugger;
+      } else {
+        //if == ""
+        // set searched to false
+        // current search = this.props.products
+        currentList = products;
+        this.setState({
+          searched: false
+        });
+      }
+
+      this.setState({
+        filtered: currentList
+      });
+      debugger;
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
+      //debugger;
       this.props.requestProducts();
+      this.setState({
+        searched: false,
+        filtered: this.props.products
+      }); // debugger;
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.products.length != this.props.products.length) {
+        this.props.requestProducts();
+        this.setState({
+          searched: false,
+          filtered: this.props.products
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           products = _this$props.products,
           deleteProduct = _this$props.deleteProduct,
           currentUser = _this$props.currentUser,
           users = _this$props.users;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      var list = this.state.filtered.length == 0 ? products : this.state.filtered;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "test search",
+        onChange: this.handleChange
+      })), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "header-name"
       }, "Welcome back, ", currentUser.first_name, "!") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "products"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "product-list"
-      }, products.map(function (product) {
+      }, list.map(function (product) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_product_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           currentUser: currentUser,
           product: product,
           deleteProduct: deleteProduct,
           seller: users[product.seller_id],
-          key: product.id
+          key: product.id,
+          newProducts: _this2.state.filtered
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "create-product-button"
@@ -1697,11 +1763,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   //console.log(state)
-  var title = ownProps.location.search.split("=")[1];
-  var products = title == "" || title == undefined ? Object.values(state.entities.products) : Object.values(state.entities.products).filter(function (products) {
-    return products.product_name.includes(title);
-  });
-  debugger;
+  //let title = ownProps.location.search.split("=")[1];
+  var products = Object.values(state.entities.products); // debugger;
+
   return {
     currentUser: state.entities.users[state.session.id],
     products: products,
@@ -1789,6 +1853,7 @@ var ProductIndexItem = /*#__PURE__*/function (_React$Component) {
   _createClass(ProductIndexItem, [{
     key: "render",
     value: function render() {
+      console.log(this.props);
       var _this$props = this.props,
           product = _this$props.product,
           deleteProduct = _this$props.deleteProduct; //debugger;
