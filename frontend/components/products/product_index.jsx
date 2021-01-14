@@ -23,7 +23,7 @@ class ProductIndex extends React.Component {
         const { products } = this.props;
         let currentList = [];
         if (e.target.value !== ""){
-            currentList = products.filter((products) => (this.cleanQuery(products.product_name).includes(this.cleanQuery(e.target.value.toLowerCase()))));
+            currentList = products.filter((product) => (this.cleanQuery(product.product_name).includes(this.cleanQuery(e.target.value))));
             this.setState({searched : true});
         } else {
             currentList = products;
