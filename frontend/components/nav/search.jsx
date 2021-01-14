@@ -4,8 +4,6 @@ class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        //this.handleTest = this.handleTest.bind(this);
-        this.state = {title: "", test: this.props.test};
     }
 
     componentDidMount(){
@@ -26,23 +24,10 @@ class SearchBar extends React.Component {
         };
     }
 
-    // handleTest() {
-    //     debugger;
-    //     return ()=> {
-    //         this.setState({test : !this.state.test});
-    //         console.log(`search + ${this.props.test}`);
-    //     };
-    // }
+
 
     render() {
-        console.log(`search + ${this.state.test}`);
         return (
-            <div>
-                    <button
-                        className="signin-submit"
-                        label="test"
-                        onClick={() => this.setState({test : !this.state.test})}
-                    />
             <div className="search-div">
 
                     <input
@@ -51,7 +36,6 @@ class SearchBar extends React.Component {
                         placeholder="Search for anything"
                         //onChange={this.handleChange}
                     ></input>
-            </div>
             </div>
         );
     }

@@ -1000,9 +1000,7 @@ var Nav = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/",
         className: "header-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", null, "Artsy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_search_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        test: this.props.test
-      }), this.userStatus(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", null, "Artsy")), this.userStatus(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/api/session/carts"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
         className: "shopping-cart",
@@ -1122,12 +1120,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, SearchBar);
 
     _this = _super.call(this, props);
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); //this.handleTest = this.handleTest.bind(this);
-
-    _this.state = {
-      title: "",
-      test: _this.props.test
-    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1155,36 +1148,18 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         _this2.setState(_defineProperty({}, field, e.target.value));
       };
-    } // handleTest() {
-    //     debugger;
-    //     return ()=> {
-    //         this.setState({test : !this.state.test});
-    //         console.log(`search + ${this.props.test}`);
-    //     };
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
-      console.log("search + ".concat(this.state.test));
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "signin-submit",
-        label: "test",
-        onClick: function onClick() {
-          return _this3.setState({
-            test: !_this3.state.test
-          });
-        }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "search-bar",
         placeholder: "Search for anything" //onChange={this.handleChange}
 
-      })));
+      }));
     }
   }]);
 
@@ -1618,7 +1593,6 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ProductIndex);
 
     _this = _super.call(this, props);
-    console.log(props);
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.state = {
       filtered: props.products
@@ -1640,8 +1614,8 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
       var currentList = [];
 
       if (e.target.value !== "") {
-        currentList = products.filter(function (products) {
-          return _this2.cleanQuery(products.product_name).includes(_this2.cleanQuery(e.target.value.toLowerCase()));
+        currentList = products.filter(function (product) {
+          return _this2.cleanQuery(product.product_name).includes(_this2.cleanQuery(e.target.value));
         });
         this.setState({
           searched: true
@@ -1688,9 +1662,12 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           currentUser = _this$props.currentUser,
           users = _this$props.users;
       var list = this.state.filtered.length == 0 ? products : this.state.filtered;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "search-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "true-search",
         type: "text",
-        placeholder: "test search",
+        placeholder: "Search for anything",
         onChange: this.handleChange
       })), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "header-name"

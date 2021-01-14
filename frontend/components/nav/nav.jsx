@@ -35,7 +35,7 @@ class Nav extends React.Component {
                     <Link to="/" className="header-link">
                         <h1>Artsy</h1>
                     </Link>
-                    <SearchContainer test={this.props.test}/>
+                    {/* <SearchContainer test={this.props.test}/> */}
                     {this.userStatus()}
                     <Link to="/api/session/carts">
                         <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>

@@ -9,7 +9,6 @@ class ProductIndex extends React.Component {
 
     constructor(props){
         super(props);
-        console.log(props);
         this.handleChange = this.handleChange.bind(this);
         this.state = {filtered : props.products};
         
@@ -49,11 +48,12 @@ class ProductIndex extends React.Component {
         let list = this.state.filtered.length == 0 ? products : this.state.filtered;
         return (
             <div>
-                <div>
+                <div className="search-div">
                     {/* below is the search bar WIP */}
                     <input
+                        className="true-search"
                         type="text"
-                        placeholder="test search"
+                        placeholder="Search for anything"
                         onChange={this.handleChange}
                     />
                     
