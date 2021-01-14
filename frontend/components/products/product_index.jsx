@@ -15,12 +15,15 @@ class ProductIndex extends React.Component {
         
     }
     
+    cleanQuery(str){
+        return str.replace(/\s+/g, '').toLowerCase();
+    }
     
     handleChange(e){
         const { products } = this.props;
         let currentList = [];
         if (e.target.value !== ""){
-            currentList = products.filter((products) => (products.product_name.includes(e.target.value)));
+            currentList = products.filter((products) => (this.cleanQuery(products.product_name).includes(this.cleanQuery(e.target.value.toLowerCase()))));
             this.setState({searched : true});
         } else {
             currentList = products;
@@ -48,11 +51,11 @@ class ProductIndex extends React.Component {
             <div>
                 <div>
                     {/* below is the search bar WIP */}
-                    {/* <input
+                    <input
                         type="text"
                         placeholder="test search"
                         onChange={this.handleChange}
-                    /> */}
+                    />
                     
                 </div>    
                 {currentUser ? <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2>: ""}    

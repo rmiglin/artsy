@@ -1627,14 +1627,21 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ProductIndex, [{
+    key: "cleanQuery",
+    value: function cleanQuery(str) {
+      return str.replace(/\s+/g, '').toLowerCase();
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(e) {
+      var _this2 = this;
+
       var products = this.props.products;
       var currentList = [];
 
       if (e.target.value !== "") {
         currentList = products.filter(function (products) {
-          return products.product_name.includes(e.target.value);
+          return _this2.cleanQuery(products.product_name).includes(_this2.cleanQuery(e.target.value.toLowerCase()));
         });
         this.setState({
           searched: true
@@ -1673,7 +1680,7 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$props = this.props,
           products = _this$props.products,
@@ -1681,7 +1688,11 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           currentUser = _this$props.currentUser,
           users = _this$props.users;
       var list = this.state.filtered.length == 0 ? products : this.state.filtered;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "test search",
+        onChange: this.handleChange
+      })), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "header-name"
       }, "Welcome back, ", currentUser.first_name, "!") : "", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "products"
@@ -1694,7 +1705,7 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           deleteProduct: deleteProduct,
           seller: users[product.seller_id],
           key: product.id,
-          newProducts: _this2.state.filtered
+          newProducts: _this3.state.filtered
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "create-product-button"
