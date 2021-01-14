@@ -18,12 +18,14 @@ import ReviewIndexContainer from './reviews/review_index_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Footer from './footer/footer';
 
+let test = true;
+
 const App = () => (
     <div>
         <Modal />
         <header>
 
-            <Nav/>
+            <Nav test={test}/>
         </header>
         <Switch>
             <Route exact path="/api/products/new" component={CreateProductFormContainer} />

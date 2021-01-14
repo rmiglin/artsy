@@ -9,11 +9,7 @@ class CartIndex extends React.Component {
         this.props.requestCartedItems();
     }
 
-    // componentWillUpdate() {
-    //     this.props.requestCartedItems();
-    // }
     totalPrice(){
-        //debugger;
         let cart_total = 0;
         this.props.cartings.forEach((cartedItem) => cart_total += this.props.products[cartedItem.product_id].price)
         return cart_total
@@ -23,7 +19,6 @@ class CartIndex extends React.Component {
         if(!this.props.cartings){
             return null;
         }
-        //debugger;
         const {products} = this.props;
         return (
             <div className="user-cart-div">

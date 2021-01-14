@@ -12,7 +12,6 @@ class Nav extends React.Component {
         super(props);
     }
 
-
     userStatus (){
         return this.props.loggedIn ? 
         <>
@@ -28,15 +27,15 @@ class Nav extends React.Component {
         }
     }
 
-
     render () {
+        console.log(`nav + ${this.props.test}`);
         return(
             <div>
                 <div className="nav-div">
                     <Link to="/" className="header-link">
                         <h1>Artsy</h1>
                     </Link>
-                    <SearchContainer/>
+                    <SearchContainer test={this.props.test}/>
                     {this.userStatus()}
                     <Link to="/api/session/carts">
                         <FontAwesomeIcon className="shopping-cart" icon={faShoppingCart}/>

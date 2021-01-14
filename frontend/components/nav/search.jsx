@@ -1,10 +1,11 @@
 import React from 'react';
-
+import ProductIndexContainer from '../products/product_index_container';
 class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {title: ""};
+        //this.handleTest = this.handleTest.bind(this);
+        this.state = {title: "", test: this.props.test};
     }
 
     componentDidMount(){
@@ -25,19 +26,32 @@ class SearchBar extends React.Component {
         };
     }
 
+    // handleTest() {
+    //     debugger;
+    //     return ()=> {
+    //         this.setState({test : !this.state.test});
+    //         console.log(`search + ${this.props.test}`);
+    //     };
+    // }
+
     render() {
+        console.log(`search + ${this.state.test}`);
         return (
-            <div className="search-div">
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        type="search"
-                        className="search-bar"
-                        placeholder="Search for items or shops"
-                        value={this.state.title}
-                        onChange={this.handleInput('title')}
-                        //results="0"    
+            <div>
+                    <button
+                        className="signin-submit"
+                        label="test"
+                        onClick={() => this.setState({test : !this.state.test})}
                     />
-                </form>
+            <div className="search-div">
+
+                    <input
+                        type="text"
+                        className="search-bar"
+                        placeholder="Search for anything"
+                        //onChange={this.handleChange}
+                    ></input>
+            </div>
             </div>
         );
     }

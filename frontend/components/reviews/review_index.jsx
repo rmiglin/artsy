@@ -8,8 +8,18 @@ import ReviewIndexItem from './review_index_item';
 
 class ReviewIndex extends React.Component {
 
+    constructor(props){
+        super(props);
+    }
+
     componentDidMount() {
         this.props.requestReviews();
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.reviews != this.props.reviews){
+            this.props.requestReviews();
+        }
     }
 
     averageReview(){

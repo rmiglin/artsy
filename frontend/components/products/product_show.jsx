@@ -17,12 +17,8 @@ class ProductShow extends React.Component {
 
     componentDidMount() {
         this.props.requestProduct(this.props.match.params.productId);
+        this.props.requestReviews();
     }
-
-    // componentWillReceiveProps() {
-    //     this.setState(this.props.product);
-    //     this.setState(this.props.reviews);
-    // }
 
     handleClick(e){
         e.preventDefault();
