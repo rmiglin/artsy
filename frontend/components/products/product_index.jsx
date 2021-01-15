@@ -41,9 +41,7 @@ class ProductIndex extends React.Component {
             this.props.requestProducts();
             this.setState({searched : false, filtered : this.props.products });         
         }
-        if(prevProps.products != this.props.products){
-            this.props.requestProducts();
-        }
+
     }
 
     render() {

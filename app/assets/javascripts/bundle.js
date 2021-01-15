@@ -1665,10 +1665,6 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           filtered: this.props.products
         });
       }
-
-      if (prevProps.products != this.props.products) {
-        this.props.requestProducts();
-      }
     }
   }, {
     key: "render",
