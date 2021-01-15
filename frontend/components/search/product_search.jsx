@@ -5,17 +5,18 @@ class ProductSearch extends React.Component {
     constructor(props){
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = {filtered : props.products};  
+        this.state = { filtered: props.products };  
     }
 
     cleanQuery(str){
         return str.replace(/\s+/g, '').toLowerCase();
     }
 
+    // Install Prettier in vscode, let it run on your whole project
     handleChange(e){
         const { products } = this.props;
         let currentList = [];
-        if (e.target.value !== ""){
+        if (e.target.value !== "") {
             currentList = products.filter((product) => (this.cleanQuery(product.product_name).includes(this.cleanQuery(e.target.value))));
             this.setState({searched : true});
         } else {

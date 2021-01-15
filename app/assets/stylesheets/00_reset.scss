@@ -39,3 +39,8 @@ button,
 input[type="submit"] {
   cursor: pointer;
 }
+// TODO: this made the Artsy logo underline too, which you could handle via CSS for the Artsy logo, but really the Artsy logo should be an image or SVG, not text
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

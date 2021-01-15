@@ -39,9 +39,10 @@ class ReviewIndex extends React.Component {
 
     render() {
         if(!this.props.reviews){
+            // debugger;
             return null;
         }
-        const {users} = this.props.users;
+        const { users } = this.props;
         return (
             <div className="user-review-div">
                 <div className="review-div">
@@ -56,12 +57,12 @@ class ReviewIndex extends React.Component {
                         {
                             this.props.reviews.map((review) => (
                                 <ReviewIndexItem 
-                                author={this.props.users[review.author_id].first_name}
-                                author_id={review.author_id}
-                                product_id={review.product_id}
-                                rating={review.rating}
-                                comment={review.comment}
-                                key={review.id}
+                                    author={users[review.author_id].first_name}
+                                    author_id={review.author_id}
+                                    product_id={review.product_id}
+                                    rating={review.rating}
+                                    comment={review.comment}
+                                    key={review.id}
                             />))
                         }
                     </ul>

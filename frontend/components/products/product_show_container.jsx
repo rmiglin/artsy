@@ -6,14 +6,11 @@ import { createCartedItem } from '../../actions/cart_actions';
 import { requestReviews, deleteReview } from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state)
-    //debugger;
     return({
     currentUserId: state.session.id,
     product: state.entities.products[ownProps.match.params.productId],
     users: state.entities.users,
     reviews: state.entities.reviews
-    // reviews: Object.values(state.entities.reviews).filter((reviews) => reviews.product_id === product.id)
 })
 }
 

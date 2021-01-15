@@ -2,54 +2,55 @@
     color: rgba(224, 109, 54, 1.0);
     text-decoration: none;
     font-size: 40px;
-    transform: translate(10%, 30%);  
-    margin-right: 10px;
     font-family: 'Times New Roman', Times, serif;
-    margin: 0px 10px 0px 10px;
 }
 
 .search-bar {
     width: 900px;
     padding: 9px 42px 9px 18px;
     height: 30px;
-    transform: translate(0%, 30%);
     border-radius: 25px;
     background-color: lightgray;
     text-align: left;
 }
 
+// TODO: no more naming classes "-div", refactor!
 .nav-div {
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    justify-content: space-around;
-    padding: 0px 36px;
-    vertical-align: middle;
-    margin: 0px 34.5px;
-    padding: 12px 200px;
-    align-items: center;
-
+    margin: 24px auto;
+    max-width: 1500px;
 }
 
-.dropdown-div ul{
+.nav-container {
+    align-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px;
+    vertical-align: middle;
+}
+
+.nav-controls {
+    align-items: center;
+    display: flex;
+}
+
+// Don't do this! Just give the dropdown list its own class
+.dropdown-div ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     vertical-align: middle;
     justify-content: space-between;
-    padding: 0px 18px;
-    width: 1270px;
-    font-style: sans-serif;
+    width: 1460px;
     position: relative;
     margin: auto;
-    margin-top: 10px;
 }
 
   
 
 .shopping-cart {
     font-size: 20px; 
-    transform: translate(0%, 35%);
     border-radius: 20px;
     vertical-align: text-bottom;  
     padding: 10px; 
@@ -61,26 +62,21 @@
 
 .user-circle {
     font-size: 20px;
-    transform: translate(0%, 35%);
     padding: 10px; 
 }
 
 .signin-submit {
     font-size: 13px;
     font-family: sans-serif;
+    font-weight: bold;
     border-radius: 25px;
     height: 30px;
-    width: 40px;
-    padding: 0px 15px 0px 15px;
-    text-align: bottom;
-    transform: translate(0%, 45%);
-    vertical-align: center;
+    width: 44px;
+    padding: 0px 15px;
     justify-content: center;
     flex-direction: column;
     &:hover{
         background-color: lightgray;
         transition: background-color .2s ease-in-out;
     }
-
-
 }

@@ -38,6 +38,15 @@ export const createProduct = (product) => {
     }
 }
 
+// We fetch the product, and the users array is a singleton with just the product merchant in the array.
+// When we try to render the reviews, we cannot render the review author name, because the users array is a singleton, remember? It doesn't have any of the reviewers!
+// So when the API returns the product, product.users should also contain all reviewers as well as the item merchant.
+
+// e.g. Orange Earrings
+// Merchant: JewelryByCynthia, id: 168
+// Reviewer has author_id: 164
+// props.users is [{168: { id: 168, email: 'madhaatter@email.com', first_name: 'JewelryByCynthia' }}]
+// Error! There's no props.users[review.author_id] ==> props.users[164]
 export const requestProduct = (id) => {
     return (dispatch) => {
         return ProductAPIUtil.fetchProduct(id).then(product => {

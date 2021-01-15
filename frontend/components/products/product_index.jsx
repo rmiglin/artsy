@@ -41,6 +41,9 @@ class ProductIndex extends React.Component {
             this.props.requestProducts();
             this.setState({searched : false, filtered : this.props.products });         
         }
+        if(prevProps.products != this.props.products){
+            this.props.requestProducts();
+        }
     }
 
     render() {
@@ -48,31 +51,37 @@ class ProductIndex extends React.Component {
         let list = this.state.filtered.length == 0 ? products : this.state.filtered;
         return (
             <div>
-                <div className="search-div">
-                    {/* below is the search bar WIP */}
-                    <input
-                        className="true-search"
-                        type="text"
-                        placeholder="Search for anything"
-                        onChange={this.handleChange}
-                    />
-                    
-                </div>    
-                {currentUser ? <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2>: ""}    
-                <div className="products">
-                    <ul className="product-list">
-                        {
-                            list.map((product) => (<ProductIndexItem currentUser = {currentUser} 
-                                product={product} 
-                                deleteProduct={deleteProduct} 
-                                seller={users[product.seller_id]} 
-                                key={product.id} 
-                                newProducts={this.state.filtered}
-                                />))
-                        }
-                    </ul>
+                <div className="product-index">
+                    <div className="search-div">
+                        {/* below is the search bar WIP */}
+                        <input
+                            className="true-search"
+                            type="text"
+                            placeholder="Search for anything"
+                            onChange={this.handleChange}
+                        />
+                        
+                    </div>    
+                    {currentUser ? <h2 className="header-name">Welcome back, {currentUser.first_name}!</h2> : ""}
+                    <div className="products">
+                        <ul className="product-list">
+                            {
+                                list.map((product) => (<ProductIndexItem currentUser = {currentUser} 
+                                    product={product} 
+                                    deleteProduct={deleteProduct} 
+                                    seller={users[product.seller_id]} 
+                                    key={product.id} 
+                                    newProducts={this.state.filtered}
+                                    />))
+                            }
+                        </ul>
+                    </div>
+                    {currentUser ?
+                        <h1 className="create-product-button">
+                            <Link to="api/products/new">Create Product Listing</Link>
+                        </h1>
+                    : ""}
                 </div>
-                <h1 className="create-product-button">{this.props.currentUser ? <Link to="api/products/new">Create Product Listing</Link> : ""}</h1>
                 <Splash/>
             </div>
         )

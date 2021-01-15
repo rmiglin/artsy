@@ -237,7 +237,15 @@ var createProduct = function createProduct(product) {
       console.log(errorObj);
     });
   };
-};
+}; // We fetch the product, and the users array is a singleton with just the product merchant in the array.
+// When we try to render the reviews, we cannot render the review author name, because the users array is a singleton, remember? It doesn't have any of the reviewers!
+// So when the API returns the product, product.users should also contain all reviewers as well as the item merchant.
+// e.g. Orange Earrings
+// Merchant: JewelryByCynthia, id: 168
+// Reviewer has author_id: 164
+// props.users is [{168: { id: 168, email: 'madhaatter@email.com', first_name: 'JewelryByCynthia' }}]
+// Error! There's no props.users[review.author_id] ==> props.users[164]
+
 var requestProduct = function requestProduct(id) {
   return function (dispatch) {
     return _util_product_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchProduct"](id).then(function (product) {
@@ -967,15 +975,16 @@ var Nav = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Nav);
 
-  function Nav(props) {
+  function Nav() {
     _classCallCheck(this, Nav);
 
-    return _super.call(this, props);
+    return _super.apply(this, arguments);
   }
 
   _createClass(Nav, [{
     key: "userStatus",
     value: function userStatus() {
+      // TODO: indentation? what are these <>
       return this.props.loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
         className: "user-circle",
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUserCircle"]
@@ -994,23 +1003,29 @@ var Nav = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // TODO: remove console log, don't wrap everything in an empty div if you don't have to (or use a more "semantic HTML" element for a search bar)
+      // Make those <li>s into <a>s, even if they don't go anywhere, it's closer to the real thing and they'd look better
       console.log("nav + ".concat(this.props.test));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "nav-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "nav-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/",
         className: "header-link"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", null, "Artsy")), this.userStatus(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h1", null, "Artsy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "nav-controls"
+      }, this.userStatus(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/api/session/carts"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
         className: "shopping-cart",
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faShoppingCart"]
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "dropdown-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Everyday Finds"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Jewelry & Accessories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Clothing & Shoes"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Home & Living"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Wedding & Party"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Toys & Entertainment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Art & Collectibles"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, "Craft Supplies"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Everyday Finds")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Jewelry & Accessories")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Clothing & Shoes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Home & Living")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Wedding & Party")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Toys & Entertainment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Art & Collectibles")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, "Craft Supplies")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesomeIcon"], {
         className: "gift",
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faGift"]
-      }), "Gifts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("hr", null)));
+      }), "Gifts"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("hr", null)));
     }
   }]);
 
@@ -1650,6 +1665,10 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           filtered: this.props.products
         });
       }
+
+      if (prevProps.products != this.props.products) {
+        this.props.requestProducts();
+      }
     }
   }, {
     key: "render",
@@ -1663,6 +1682,8 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           users = _this$props.users;
       var list = this.state.filtered.length == 0 ? products : this.state.filtered;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "product-index"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "search-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "true-search",
@@ -1684,11 +1705,11 @@ var ProductIndex = /*#__PURE__*/function (_React$Component) {
           key: product.id,
           newProducts: _this3.state.filtered
         });
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      }))), currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "create-product-button"
-      }, this.props.currentUser ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "api/products/new"
-      }, "Create Product Listing") : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }, "Create Product Listing")) : ""), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_splash_splash__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -1996,14 +2017,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  console.log(state); //debugger;
-
   return {
     currentUserId: state.session.id,
     product: state.entities.products[ownProps.match.params.productId],
     users: state.entities.users,
-    reviews: state.entities.reviews // reviews: Object.values(state.entities.reviews).filter((reviews) => reviews.product_id === product.id)
-
+    reviews: state.entities.reviews
   };
 };
 
@@ -2312,13 +2330,12 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
       if (!this.props.reviews) {
+        // debugger;
         return null;
       }
 
-      var users = this.props.users.users;
+      var users = this.props.users;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "user-review-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -2335,7 +2352,7 @@ var ReviewIndex = /*#__PURE__*/function (_React$Component) {
         className: "review-list"
       }, this.props.reviews.map(function (review) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_review_index_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          author: _this.props.users[review.author_id].first_name,
+          author: users[review.author_id].first_name,
           author_id: review.author_id,
           product_id: review.product_id,
           rating: review.rating,
