@@ -12,7 +12,6 @@
 * Add products to cart
 * View total cost of carted items
 * Search all products in store
-* View products by category
 
 # Structure
 
@@ -36,8 +35,16 @@ Artsy uses:
 
 **User Authorization**
 
+![](/app/assets/gifs/user_authorization.gif)
+
 **Products**
+
+![](/app/assets/gifs/products.gif)
 
 **Reviews**
 
+![](/app/assets/gifs/reviews.gif)
+
 **Search**
+
+![](/app/assets/gifs/search.gif)
