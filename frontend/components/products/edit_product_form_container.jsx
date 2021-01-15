@@ -5,9 +5,9 @@ import ProductForm from './product_form';
 
 const mapStateToProps = (state, ownProps) => {
     return({
-    currentUser: state.entities.users[state.session.id],
-    product: state.entities.products[ownProps.match.params.productId],
-    formType: 'Update Product'
+        currentUser: state.entities.users[state.session.id],
+        product: state.entities.products[ownProps.match.params.productId],
+        formType: 'Update Product'
     });
 }
 
@@ -18,8 +18,14 @@ const mapDispatchToProps = (dispatch) => ({
 
 class EditProductForm extends React.Component {
 
+    componentDidUpdate(prevProps) {
+        if(prevProps.product != this.props.product){
+            this.props.requestProduct();
+        }
+    }
+
     componentDidMount() {
-        this.props.requestProduct(this.props.match.params.productId)
+        this.props.requestProduct(this.props.match.params.productId);
     }
 
     render() {
@@ -28,10 +34,11 @@ class EditProductForm extends React.Component {
         if (!product) return null;
         return (
             <div>
-            <ProductForm
-                action={action}
-                formType={formType}
-                product={product} />
+                <ProductForm
+                    action={action}
+                    formType={formType}
+                    product={product} 
+                />
             </div>
         );
     }

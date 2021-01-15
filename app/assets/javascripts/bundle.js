@@ -1327,6 +1327,13 @@ var EditProductForm = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(EditProductForm, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.product != this.props.product) {
+        this.props.requestProduct();
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.requestProduct(this.props.match.params.productId);
