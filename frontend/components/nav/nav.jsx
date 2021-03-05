@@ -11,11 +11,11 @@ class Nav extends React.Component {
     userStatus() {
         // TODO: indentation? what are these <>
         return this.props.loggedIn ? 
-        <>
-        <FontAwesomeIcon className="user-circle" icon={faUserCircle} /> 
-        <button className="signin-submit" onClick={ this.props.logout }>Log out</button>
-        </>: 
-        this.props.sessionModal; 
+            <>
+            <FontAwesomeIcon className="user-circle" icon={faUserCircle} /> 
+            <button className="signin-submit" onClick={ this.props.logout }>Log out</button>
+            </>: 
+            this.props.sessionModal; 
     }
 
     componentDidUpdate(prevProps) {

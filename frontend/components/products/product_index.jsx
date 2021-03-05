@@ -51,7 +51,6 @@ class ProductIndex extends React.Component {
             <div>
                 <div className="product-index">
                     <div className="search-div">
-                        {/* below is the search bar WIP */}
                         <input
                             className="true-search"
                             type="text"

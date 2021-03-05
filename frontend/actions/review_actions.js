@@ -5,7 +5,6 @@ export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 
 const receiveReviews = (reviews) => {
-    //debugger;
     return {
         type: RECEIVE_REVIEWS,
         reviews: reviews
@@ -37,16 +36,7 @@ export const createReview = (review) => {
     }
 }
 
-// export const requestReview = (id) => {
-//     return (dispatch) => {
-//         return ReviewAPIUtil.fetchReview(id).then(review => {
-//             return dispatch(receiveReview(review));
-//         })
-//     }
-// }
-
 export const requestReviews = () => {
-    //debugger;
     return (dispatch) => {
         return ReviewAPIUtil.fetchReviews().then(reviews => {
             return dispatch(receiveReviews(reviews));

@@ -300,7 +300,6 @@ var RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 var REMOVE_REVIEW = 'REMOVE_REVIEW';
 
 var receiveReviews = function receiveReviews(reviews) {
-  //debugger;
   return {
     type: RECEIVE_REVIEWS,
     reviews: reviews
@@ -329,16 +328,8 @@ var createReview = function createReview(review) {
       console.log(errorObj);
     });
   };
-}; // export const requestReview = (id) => {
-//     return (dispatch) => {
-//         return ReviewAPIUtil.fetchReview(id).then(review => {
-//             return dispatch(receiveReview(review));
-//         })
-//     }
-// }
-
+};
 var requestReviews = function requestReviews() {
-  //debugger;
   return function (dispatch) {
     return _util_review_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReviews"]().then(function (reviews) {
       return dispatch(receiveReviews(reviews));
@@ -1172,8 +1163,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         className: "search-bar",
-        placeholder: "Search for anything" //onChange={this.handleChange}
-
+        placeholder: "Search for anything"
       }));
     }
   }]);
@@ -2958,7 +2948,6 @@ var cartReducer = function cartReducer() {
       return newState;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CARTED_ITEMS"]:
-      //debugger;
       return action.cartedItems;
 
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CARTED_ITEM"]:
@@ -2989,7 +2978,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _products_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products_reducer */ "./frontend/reducers/products_reducer.js");
 /* harmony import */ var _cart_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cart_reducer */ "./frontend/reducers/cart_reducer.js");
 /* harmony import */ var _review_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./review_reducer */ "./frontend/reducers/review_reducer.js");
- //more to add later
 
 
 
@@ -3190,7 +3178,6 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["CLOSE_MODAL"]:
-      //return null;
       return [];
 
     case _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__["OPEN_MODAL"]:
@@ -3234,15 +3221,6 @@ var sessionReducer = function sessionReducer() {
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_CURRENT_USER"]:
       return _nullUser;
-    // case RECEIVE_CARTED_ITEMS: 
-    //     return action.cartedItems;
-    // case RECEIVE_CARTED_ITEM:
-    //     newState = Object.assign({}, state, { [action.cartedItem.id]: action.cartedItem });
-    //     return newState;
-    // case REMOVE_CARTED_ITEM:
-    //     newState = Object.assign({}, state);
-    //     delete newState[action.cartedItem_Id];
-    //     return newState;        
 
     default:
       return state;
@@ -3410,7 +3388,6 @@ var createProduct = function createProduct(body) {
   });
 };
 var updateProduct = function updateProduct(body) {
-  //debugger;
   return $.ajax({
     method: "PATCH",
     url: "/api/products/".concat(body.id),
@@ -3442,11 +3419,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReviews", function() { return fetchReviews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteReview", function() { return deleteReview; });
-// export const fetchReview = (reviewId) => {
-//     return $.ajax({
-//         url: "/api/reviews"
-//     });
-// }
 var fetchReviews = function fetchReviews() {
   return $.ajax({
     method: "GET",
